@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <META charset="UTF-8">
+    <META name="viewport"
+      content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles.css">
+      <title>Bharat's Blog</title>
+</head>
+
+<body>
+    <div id="vertical-menu">
+        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
+        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
+        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
+        
+    </div>
+
+    <div id="left">
+    
+    </div>
+    
+    <div id="content">
+        <h2>Blog</h2>
+        <ul>
+            <li> Jan 2025&emsp;<a href="posts/datawall"><b>The data wall or: How I learned to stop worrying and love the bitter lesson</b></a></li><br>
+            <li> Jan 2025&emsp;<a href="posts/mnist_post"><b>Building a Neural Network from Scratch: MNIST classifier with just Python</b></a></li><br>
+            <li> Nov 2024&emsp;<a href="posts/llama_says_whatsapp"><b>Llama says WhatsApp - voluntary lock-in</b></a></li><br>
+            <li> Sep 2024&emsp;<a href="posts/neural_net_visualizer"><b>An interactive neural net visualizer</b></a></li><br>
+            <li> Mar 2024&emsp;<a href="posts/dune2_review"><b>Dune 2: Destiny and missed opportunities - film review</b></a></li><br>
+            <li> Feb 2024&emsp;<a href="posts/enshittification"><b>On shoe shopping, whatsapp and enshittification</b></a></li><br>
+            <li> Sep 2023&emsp;<a href="posts/gdp"><b>Tharoor, The Great Divergence and Colonialism</b></a></li><br>
+            <li> Sep 2023&emsp;<a href="posts/writers_block_and_product_management"><b>Writer's block and product management</b></a></li><br>
+            <li> Sep 2023&emsp;<a href="posts/love_in_the_time_of_LLMs"><b>Love in the time of LLMs</b></a></li><br>
+            <li> Aug 2023&emsp;<a href="posts/potting_balls"><b>Potting Balls</b></a></li><br>
+            
+        </ul><br><br>
+        <a href="posts/older_posts">Older posts</a>
+        <br><br>*Opinions and views my own
+        
+    </div>
+    <script src="firebase-config.js"></script>
+</body>
+</html>
+

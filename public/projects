@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <META charset="UTF-8">
+    <META name="viewport"
+      content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles.css">
+      <title>Bharat's Projects</title>
+</head>
+
+<body>
+    <div id="vertical-menu">
+        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
+        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
+        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
+    </div>
+
+    <div id="left">
+        
+    </div>
+    
+    <div id="content">
+        <h2>Projects</h2>
+        <ul>
+            <li> <a href="https://github.com/BharatBheesetti/Scribe">Simple audio transcriber</a></li><br>
+            <li> <a href="posts/neural_net_visualizer">Neural net visualizer</a></li><br>
+        </ul>
+        
+    </div>
+    <script src="firebase-config.js"></script>
+</body>
+</html>
+

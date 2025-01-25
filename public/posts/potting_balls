@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <META charset="UTF-8">
+    <META name="viewport"
+      content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles.css">
+      <title>Potting Balls</title>
+</head>
+
+<body>
+    <div id="vertical-menu">
+        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
+        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
+        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
+        
+    </div>
+
+    <div id="left">
+    </div>
+    
+    <div id="content">
+            
+        <h2>Potting balls</h2>
+        <p>There is a video I remember <a href="https://www.youtube.com/shorts/a2AwLu20oX8">seeing on YouTube.</a> For those who
+            don&rsquo;t know, this is the undisputed greatest snooker player of all time, maybe a couple drinks in. But what has
+            always impressed/inspired me about this video is the undisguised glee he shows when he pots a ball. Ball go in hole.
+            Monke happy. The simple pleasure of hitting balls with a stick into a hole is what it&rsquo;s all about. Look at the face of every
+            single newcomer at a pool or snooker table, those who need help holding the cue. Look at their face when they strike
+            their first ball into the pocket. There are some who like it a little bit, there are some who immediately fall in
+            love, there are some who fall in love with it gradually, but everyone likes that feeling. It is something primal,
+            affirmation of the hand eye coordination that has been bred into us by millions of years of evolution.</p>
+        <p>What is most interesting to me is the progression of the joy you feel as you get progressively deeper into the game.
+            As a rank beginner, the positive feedback loop is centered around consistently enjoying the micro-happiness that
+            comes from making straight shots (where the object ball and the cue ball are in a straight line to the pocket). As
+            you get slightly better, the focus shifts towards making more of these in a row (maybe aim for 4/5 or 8/10). You
+            start beginning to practice slightly more difficult shots like angled cuts.</p>
+        <p>As you get even better at the game, the focus almost entirely shifts towards hitting the cue ball in such a way as to
+            both make your current shot, ensure you leave the cue ball in position for your next shot. This is a skill
+            that&rsquo;s easy to start learning, but almost impossible to master, needing years of practice, unless you&rsquo;re
+            supremely talented. Screw back, side spin, top spin, stun shots, the learning opportunities are endless. And as you
+            hit the top echelons of shot making, there are those shots that make people stand up and applaud. <a
+                href="https://youtu.be/rq3LP8XC5gY?t=74">Look at this shot</a>, and more importantly look at the reaction of the
+            opponent. Yeah. Every player&rsquo;s approach to the game is different. Some are aggressive, some are measured, some grind you down
+            with defense, some are reckless. And some are like chameleons. They decide the personality they want to bring to the
+            table, based on the stakes and the opponent. What you do on the table, how you approach a given shot or a given
+            table situation, says a lot about your character. The green baize is often a mirror into the player&rsquo;s soul. It
+            doesn&rsquo;t lie. </p>
+        <p>I got started with snooker in March of 2022 when I started going semi regularly with my brother to a newly opened
+            snooker parlor in Visakhapatnam. The business owners were young, enthusiastic and cared more about their love for
+            the game than really making money, so they bought the best, brand new tables, cues and balls they could afford. I
+            learned enough of the rules in a couple of months, spending around 5-6 hours a week there, and I was still unable to
+            pot more than 3 balls in a row. I moved back to Bangalore and was lucky to find a society that had a 9 foot snooker table with an 8 ball setup. And
+            my ADHD brain took to it like a fish to water. The table was my refuge, when my ceaselessly noisy brain quieted
+            down, and only the table and balls remained. Sight the object ball, figure out where you want to hit it, get into
+            the line of the shot, do your pre-stroke routine, bend down, don&rsquo;t twitch, hit, stay down on the shot. Repeat
+            ad nauseam.</p>
+        <p>It was meditation. It was flow. It gave me quick feedback, allowed me to track my progress. I could feel my game
+            going through those phases of quick improvement, plateauing + the attendant self doubt, followed by slow
+            improvement. All the game asked of me was that I keep playing. My inner perfectionist tortured me until I got
+            better. Noticeably, measurably better. And I fucking loved it. My flatmate and I quickly set up a competitive routine of playing every single day for at least an hour, and we
+            quickly got better. It really is a beautifully addicting hobby. The YouTube niche of cue sports is well populated
+            and excellently noisy. This went on for around 8 months. And then I moved to a different society. One that
+            didn&rsquo;t have a pool table or a snooker table. The ones that did have these tables and fit the other criteria I
+            was looking for were stupidly expensive. Curse Bangalore rents.</p>
+        <p>So now I had to find a parlor. Gone were the days of free practice, of wandering in for a 1 hour session whenever you
+            had some free time. Now I have to spend more money and get to enjoy less table time. But on the positive side, I now
+            have players who will constantly challenge me and force me to get better. There is a diverse community of people at
+            the parlor, from so many different walks of life, at such different places in life, all united by their love for the
+            game. And it&rsquo;s beautiful. For a few hours every weekend, I have a place I can go to and just play.</p>
+        <p>But fundamentally, it&rsquo;s still a one man game. It is you on the table against your opponent. And as they say,
+            &ldquo;The balls don&rsquo;t lie.&rdquo; Everyone can see your mistakes, everyone can see the quality of your game,
+            and how you play determines how you&rsquo;re seen. That&rsquo;s what makes it so engrossing. Games that you play
+            against yourself. Where you&rsquo;re constantly pushing to become slightly better.<br /></p>
+        <p>So my ultimate target has always been to make a maximum break of 147, the perfect frame of snooker. &nbsp;But
+            I&rsquo;m nowhere close to it right now. So for now my target is a break of 75. My PB is 30. Long way to go. And I
+            can&rsquo;t wait to keep getting better. You&rsquo;ll find me at the parlor. Pick up a cue. You won&rsquo;t regret
+            it.</p>
+        
+    </div>
+    <script src="firebase-config.js"></script>
+</body>
+</html>
+

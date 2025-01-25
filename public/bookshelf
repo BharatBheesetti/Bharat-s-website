@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <META charset="UTF-8">
+    <META name="viewport"
+      content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="styles.css">
+      <title>Bookshelf</title>
+</head>
+
+<body>
+    <div id="vertical-menu">
+        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
+        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
+        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
+    </div>
+
+    <div id="left">
+        
+    </div>
+    
+    <div id="content">
+        <h2>Bookshelf</h2>
+        <p> I try to be an omnivorous reader. <a href="https://www.goodreads.com/user/show/10029574-bharat-bheesetti">I track my books here.</a> <br><br> 
+            This is a list, in no particular order, of the books that have had the biggest impact on me.
+
+            <ul>
+                <li><a href="https://www.amazon.in/How-Win-Friends-Influence-People/dp/0671027034">How to Win Friends and Influence People</a></li><br>
+                <li><a href="https://www.amazon.in/Thinking-Fast-Penguin-Press-Non-Fiction/dp/0141033576/">Thinking Fast and Slow</a></li><br>
+                <li><a href="https://www.amazon.in/Gardens-Moon-Malazan-Book-Fallen-ebook/dp/B0031RS64G/">The Malazan Book of the Fallen</a></li><br>
+                <li><a href="https://www.amazon.in/Godel-Escher-Bach-Douglas-Hofstadter/dp/0465026567">Godel Escher Bach: an Eternal Golden Braid</a></li><br>
+                <li><a href="https://www.amazon.in/BOOK-NEW-SUN-SF-MASTERWORKS/dp/1473216494/">The Book of the New Sun</a></li><br>
+                <li><a href="https://www.amazon.in/Black-Swan-Impact-Highly-Improbable/dp/0141034599/">Black Swan: Impact of the Highly Improbable</a></li><br>
+                <li><a href="https://www.amazon.in/Siddhartha-Hermann-Hesse/dp/0553208845/">Siddhartha</a></li><br>
+                <li><a href="https://www.amazon.in/Punishment-Penguin-Classics-Fyodor-Dostoyevsky/dp/0140449132/">Crime and Punishment</a></li><br>
+                <li><a href="https://www.amazon.in/Blood-Meridian-Picador-Collection-2/dp/1529077168/">Blood Meridian</a></li><br>
+                
+            </ul>
+
+            
+        </p>
+    </div>
+    <script src="firebase-config.js"></script>
+</body>
+</html>
+

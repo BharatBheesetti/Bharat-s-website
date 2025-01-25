@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <META charset="UTF-8">
+    <META name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Love in the time of LLMs</title>
+</head>
+
+<body>
+    <div id="vertical-menu">
+        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
+        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
+        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
+        
+    </div>
+
+    <div id="left">
+    </div>
+
+    <div id="content">
+
+        <h2>Love in the time of LLMs</h2>
+        <p>Story 1: I remember talking to my friend around the time ChatGPT came out. He’s a super-intelligent senior
+            developer with a lot of experience. He said something that’s stayed in my mind for a while. “I can now use
+            it as a personal tutor. It’s so kind, understanding and patient. This is the teacher I’ve always wanted.
+            I can ask it any stupid question I want.”</p>
+        <p>Story 2: And then another friend, one who’s an analytics VP at a reputed organization. He marveled at GPT,
+            loving everything about it. He said, “This plays the role of the helpful, smart junior that I’ve always
+            wanted.”</p>
+        <p>Story 3, scenario 1: Picture two friends, A and B who live quite far from each other and communicate regularly via text.
+            A has a question about their career that they want an answer to. There's a lot of regret and insecurity
+            at the root of that question and they’re quite sensitive about it. They bring this topic up with B, not
+            without some trepidation. B understands A’s issue and recognizes that A needs a kick up the ass. So B
+            attempts a little tough love, which has the intended effect. A’s quite miffed about the response for a few
+            days, but once they calm down, they recognize the kernel of truth at the base of B’s slightly hurtful
+            remarks.</p>
+        <p>Story 3, scenario 2: A installs an AI-enabled therapist app. A brings up the same question with the AI
+            therapist, Siggy. Siggy is calm, helpful, understanding, is a great listener, and can reference previous
+            conversations. During this conversation, the AI therapist is not judgmental, provides a safe space, and
+            gently leads A to the same epiphany that they had in scenario 1. </p>
+        <p>Scenario 2 is not far-fetched, considering the rate of progress we are seeing in the LLM space. It will not
+            be a rare occurrence. “Her” or “Be right back” from Black Mirror won’t be complete fantasies for much
+            longer. Yes, the LLMs of now are stochastic parrots, centered around data retrieval + basic NLP tasks. But
+            in the next few years, we will see the emergence of language models enabled characters that will be able to
+            handle basic psychological support tasks. We would need long context windows and fine
+            tuning on datasets that include anonymized conversations, best practices in psychological
+            support and the ability to accurately categorize each person’s conversation history, coupled with a strong tagging and
+            retrieval system.<br></p>
+        <p>I’ve been thinking about the implications when a computer program is nicer, friendlier, calmer and more
+            “loving“ than the vast majority of people out there. What will happen when we put these programs inside of
+            humanoid robots? What strain will that put on expected human behavior in society when except a select
+            minority of people, most people are worse at emoting and listening than computers?<br></p>
+        <h3>Social Media</h3>
+        <p>The paradigm of social media is built on the attention economy - which makes sense. It’s the most sensible
+            thing to sell ads on an online platform with millions of eyeballs + sticky usage. This
+            incentivizes users to share things that will maximize reader engagement. </p>
+        <p>Social media networks right now create a need for users to portray a specific image of themselves to the
+            world around them, masks if you will. One mask for LinkedIn, one for Instagram, one for Snapchat and so on.
+            We, as the audience, pick and choose the filaments of this firehose of information that we want to color our
+            thoughts and opinions. The spaces you pick give you their own unique set of afflictions: pick from
+            depression, self-esteem issues, hatred, bigotry etc. <a href="https://www.sciencedirect.com/science/article/pii/S2451958821000695/pdf">See this link for more.</a>  </p>
+        <h3>Enter the LLM</h3>
+        <p>ChatGPT is great. Most large language models advance human productivity significantly, specifically in the
+            workplace. It’s surprising that a lot of in-office work is essentially doable by a word-predictor, but that
+            is a story for another day. There have already been many attempts made at using the LLM’s to create
+            conversational tools and storytellers.</p>
+        <p>Replika AI is a standout example of the same. It’s not great at the moment, since the AI seems to lack basic
+            conversational skills. It seems to be a well-designed if-else conversation tree, at least in the beginning
+            of the user journey and seems to be focused on selling the “premium“ version which unlocks images in chat,
+            no prizes for guessing what that would be used for. </p>
+        <p><a href="https://pi.ai/talk">Inflection AI’s Pi</a> is a better example of this “personal AI” mission. They’ve recently raised $1.3 billion in funding to achieve this very goal.
+            They have pre-trained their own model on an undisclosed dataset and have achieved a model that is
+            significantly more human in conversation and feels like you’re talking to a real person. The interesting
+            question is asking what happens if Pi is successful. What if Inflection AI really ends up building the LLM
+            that can form the basis of AI applications that can interact with users as well as a human can? </p>
+        <p>Most relationships are imperfect. Communication is imperfect, with suboptimal phrasing,
+            misunderstandings, foibles and inefficiencies. Even if the meaning were completely preserved, everyone has
+            their own problems and preoccupations in life, leading to many circumstances where conversations
+            and relationships are not given the value they should be. </p>
+        <p>Set against this backdrop, the promise of an eternally available, caring, personal, safe and non-judgmental
+            AI seems like a utopian dream. It is the ultimate companion. It will easily win against the imperfect
+            companionships humans have to offer. More fundamentally, it undercuts and renders obsolete the social reason
+            humans have relationships. Humans have gotten together in communities for millions of years because it is
+            safer. Because we can’t do it all by ourselves. The siren song that Inflection and the new AI mavens play,
+            is that we can do it all by ourselves, with just our own personal AI daemon by our side. </p>
+        <p>Tech has always promised us connection. And we have received it. We are now able to truly communicate, truly
+        talk to people across the globe, no matter their thoughts, no matter their religion or ideological leaning.
+        And as with everything, the effects are hard to reliably unpack. The atomisation of individuals, which has been helped
+        along nicely by social networking, will see a step change once we build a true "Jarvis", a personal LLM that can interact with a person like another human
+        can. As with all great internet inventions, it’s going to find its initial explorations of applicability in porn(already well
+        underway). This trend is going to co-evolve with increasingly sophisticated and emotionally intelligent AI boyfriend and girlfriend apps.
+        With a marriage not far off down the line. Applications are innumerable - senior care, child care, designated driving, personal emotional support. We will
+        create the most emotionally healthy generations ever. Healthy relationships are a mechanism to dissipate emotional pain by distributing emotional labor among the 
+        participants. A personal LLM removes the need for emotional labor, and with it, one of the core reason people persist with relationships. </p>
+        <p>I am also a little curious about how the privacy and security concerns will shake out here. As a society, we
+            have quite comprehensively placed our desire for convenience over privacy. People don’t really care if their
+            addresses or if their Amazon shopping list get leaked. But picture this. What if poured your heart out to an
+            AI therapist, and a data breach accidentally put out your deepest, darkest secrets? Companies are going to
+            have to triple check every single part of their security exposure. </p>
+        <p>It is noteworthy, however, that in an increasingly well connected world, we see more and more the
+            individualization of the human being, of each node that makes up this great network. I don’t hold a moral
+            stance on this being good or bad. With a well developed LLM humanoid, an internet connection, for the first
+            time in history, a human could actually decide to cut themselves off physically from all human interaction,
+            and actually lead an emotionally, physically and socially gratifying life. And I find that scary and
+            beautiful at the same time. Like it’s a doorway we are all running towards, but no one is really talking about it.
+        </p>
+    </div>
+<script src="firebase-config.js"></script>
+</body>
+
+</html>

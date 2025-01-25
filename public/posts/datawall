@@ -1,0 +1,253 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <META charset="UTF-8">
+    <META name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>The data wall or: How I learned to stop worrying and love the bitter lesson</title>
+</head>
+
+<body>
+    <div id="vertical-menu">
+        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
+        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
+        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
+    </div>
+
+    <div id="left">
+    </div>
+
+    <div id="content">
+        <h2>The data wall or: How I learned to stop worrying and love the bitter lesson</h2>
+        <p>
+            I was reading Leopold Aschenbrenner's essays, "Situational Awareness". They hold up quite well in spite of
+            being 7 months old, an eternity in the AI space. In that, I saw a mention of the <a
+                href="https://situational-awareness.ai/from-gpt-4-to-agi/?ref=forourposterity.com#The_data_wall">data
+                wall</a>. I'd seen this phrase thrown about a few other times as well. There was a Lesswrong <a
+                href="https://www.lesswrong.com/posts/axjb7tN9X2Mx4HzPz/the-data-wall-is-important">post</a> about it,
+            Alexandr Wang <a href="https://a16z.com/frontier-data-foundries-alex-wang-scale-ai/">brought it</a> up a <a
+                href="https://www.bigtechnology.com/p/scale-ais-alexandr-wangs-predictions">few times</a>, and it
+            definitely gave me pause. But what is it?
+        </p>
+
+        <p>
+            The data wall is a point where we run out of training data that can yield improvements in LLM performance.
+            In this post, we'll explore what it is, what it isn't, and what it means going forward.
+        </p>
+
+        <img src="blogpostpics/data_wall.jpg" alt="Data wall image" class="halfresponsive"><br>
+
+        <p>
+            At Telus Digital, we help companies tackle their data needs for ML model training. Our client base runs the
+            gamut from teams building large language models to those working on autonomous vehicle systems. So I needed
+            to figure out if this data wall was real.
+        </p>
+
+        <h3>Setting Context</h3>
+        <p>
+            Looking back at the pre-ChatGPT era of 2022, model training followed a fairly "straightforward" path:
+            Pretrain → Instruction tuning → RLHF → Final model.
+        </p>
+
+        <p>
+            You start by scraping the internet, deduplicate and clean the data, then run it through a model with enough
+            parameters to make your cloud provider wince. What you got was a pre-trained model that could predict the
+            next token with impressive accuracy - but fell flat when asked to be anything resembling a useful assistant.
+        </p>
+
+        <p>
+            The transformation from text predictor to chatbot happens through human intervention in two phases. First
+            came supervised fine-tuning, where the model learned from examples of good <a
+                href="https://arxiv.org/abs/2203.02155">instruction-following behavior</a>. Then, reinforcement learning
+            through human feedback (RLHF) kicked in - the model would generate multiple responses to prompts, with
+            humans selecting the better options iteratively, teaching the model to align with what we actually wanted
+            from it.
+        </p>
+
+        <p>
+            The data wall broadly means that we have/will run out of easily available data to train these models. The <a
+                href="https://arxiv.org/abs/2001.08361">scaling laws</a> for language models says that model performance
+            keeps improving with increases in model size, dataset size and the amount of compute used for training.
+            Model sizes are huge right now, with estimates beyond 1 trillion parameters per frontier model. Amount of
+            compute available for training doesn't look like a bottleneck. <a
+                href="https://www.msn.com/en-us/money/markets/trump-to-announce-newly-formed-partnership-investing-500b-in-ai/ar-AA1xBHsk">500
+                billion dollars</a> should get you a decent amount, I'd imagine. So of the 3 parameters, it's expensive
+            but directionally straightforward to increase 2 (compute and model size).
+        </p>
+
+        <img src="blogpostpics/scaling_lawspic.png" alt="Scaling laws diagram" class="responsive"><br>
+
+        <h3>Data wall: pretraining</h3>
+        <p>
+            The data part of the scaling laws follows a similar pattern. To keep getting better models, we need to keep
+            increasing the amount of data used. But we have exhausted our stores of easily available data for training
+            LLMs. All model builders have all scraped and used CommonCrawl, Wikipedia, textbooks and reddit.
+        </p>
+
+        <p>
+            We don't have any more large scale, openly available pretraining data on the internet. The only real lever
+            here is to go create more high quality data that can help LLMs get better. None but the biggest shops can
+            access real human generated content like YT, reddit, twitter and tiktok, which are aggressively API gated.
+        </p>
+
+        <p>
+            However, in practice, LLM's can get better by using smaller but high-quality, filtered and cleaned
+            pre-training datasets. For example, there are models pretrained <a
+                href="https://arxiv.org/abs/2306.11644">on textbooks</a> that showed surprisingly strong performance.
+        </p>
+
+        <p>
+            So the data wall is kind of true in that we don't have much more readily available internet data to throw at
+            model pre-training.
+        </p>
+
+        <h3>Data wall: post-training</h3>
+        <p>
+            Post training is more interesting. It's changed quite significantly over the last 3 odd years. Details are
+            sparse, not too much gets out to the public. However, the open source community has been a ray of sunshine,
+            sharing code, data and weights and sharing details on the processes followed for training. Allen AI's work
+            on their OlMo and OlMo2 models is especially fantastic. I strongly recommend reading <a
+                href="https://docs.google.com/presentation/d/1FL6pzRT3tjCfJ985emS_2YfujCe_iz6dsyRcDIUFPqs/edit#slide=id.g3229c249945_0_341">Nathan
+                Lambert</a> for a more detailed explanation of the advances in post training.
+        </p>
+
+        <p>
+            Humans play a massive role in the post-training of most LLMs that we see around us. Hundreds of thousands of
+            hours of effort goes into providing feedback that makes the pre-trained model actually usable. This industry
+            is often overlooked and poorly understood.
+        </p>
+
+        <p>
+            There are 2 broad ways of doing this:
+        </p>
+        <p>
+            1. SFT(Supervised fine tuning): Tell the model how to do certain tasks. Here, the aim is to improve a
+            model's performance in a task by giving it a set of question + answer pairs to improve its performance on
+            said task.
+        </p>
+        <p>
+            2. RLHF(Reinforcement learning from human feedback): For a given question, ask the model to generate 2
+            responses, and a human decides which answer's better.
+        </p>
+
+        <p>
+            In 2022-23, <a href="https://arxiv.org/abs/2204.05862">Anthropic</a> and <a
+                href="https://arxiv.org/abs/2307.09288">Meta</a> specified how they trained their models to be good
+            assistants. The pipelines looked something like this:
+        </p>
+
+        <img src="blogpostpics/post_training_then.png" alt="Post training pipeline" class="responsive"><br>
+
+        <p>
+            But that was over 2 years ago. The world has changed since then and post training has become increasingly
+            sophisticated. Frontier models share very little information about their post-training processes. Fog of
+            war. Innovations like constitutional AI help encode behavioral constraints, while chain-of-thought
+            approaches improve reasoning capabilities.
+        </p>
+
+        <p>
+            (There is <a href="https://x.com/AISafetyMemes/status/1879938756334977117">well-founded, reasonable</a>
+            speculation that state of the art LLMs generate data that is faster, cheaper, more reliable and generally
+            accurate compared to human preference labelling/instruction tuning)
+        </p>
+
+        <h3>Plot Twist: Enter DeepSeek</h3>
+        <p>
+            A few days ago, a Chinese lab called DeepSeek dropped a bombshell. They released a <a
+                href="https://x.com/deepseek_ai/status/1881318130334814301">model matching OpenAI's o1</a> and
+            open-sourced it. And their API prices are 25-30x lower than OpenAI's. The open source ecosystem has been <a
+                href="https://x.com/DrJimFan/status/1882799254957388010">giddy with palpable</a> excitement.
+        </p>
+
+        <img src="blogpostpics/deepseek-r1.png" alt="DeepSeek announcement" class="responsive"><br>
+
+        <p>
+            It's also claimed that DeepSeek spent only $5 million on the whole process. In a world where companies are
+            spending billions upon untold billions, the price of DeepSeek R1's development is absolutely shattering
+            assumptions. Somewhere, the author of the <a
+                href="https://semianalysis.com/2023/05/04/google-we-have-no-moat-and-neither/">no-moat memo</a> is doing
+            a victory lap.
+        </p>
+
+        <p>
+            How they developed this model is the most interesting part. Instead of throwing more data at the problem,
+            DeepSeek tried something different. They basically told their model "hey, figure it out yourself." They used
+            reinforcement learning - having the model generate answers, checking if they're right, and learning from
+            that process. No humans needed for most of it.
+        </p>
+
+        <p>
+            And it worked. Really well. Their first attempt (DeepSeek-R1-Zero) scored better than most humans on the
+            AIME math competition. When
+            they refined the approach with a sprinkle of human guidance (DeepSeek-R1), it matched or beat OpenAI's best
+            models across the board.
+        </p>
+
+        <h3>So what?</h3>
+        <p>
+            To the problem "How do we get more data to train models?", the answer for a very long time was "Get humans
+            to do it." This spawned an entire industry of labelers and data providers. But the numbers tell another
+            story now. OpenAI is dropping $500B on compute infrastructure through
+            <a
+                href="https://arstechnica.com/ai/2025/01/trump-announces-500b-stargate-ai-infrastructure-project-with-agi-aims/">Stargate</a>,
+            Meta plans <a href="https://www.theregister.com/2024/10/31/meta_q3_2024/">$40B in 2025 capex</a>.
+            Scale AI - the market leader in data labeling - is hitting $1B in annual revenue. The rest of the
+            labeling industry (Telus Digital, Turing, Roboflow, Labelbox, etc.) adds some more, but the pattern is
+            clear: compute investment is exploding in both scale and speed of growth while data labeling spend doesn’t
+            seem to be exploding in scale.
+        </p>
+        <img src="blogpostpics/stepthroughwall.png" alt="Walking through wall" class="halfresponsive"><br>
+        <p>
+            There is a legendary article from 2019 by Richard Sutton called the <a
+                href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">Bitter Lesson</a>.
+            It states that the largest lesson we have learned in over 70 years of AI progress is "Simple methods + lots
+            of compute wins over clever human-designed
+            solutions." The evidence keeps piling up - from DeepBlue to AlphaGo, and now to DeepSeek.
+
+        </p>
+        <p>
+            Researchers found a door through this supposed data wall. Instead of paying thousands of people to label
+            data, companies like DeepSeek are letting models teach themselves through trial and error. This will
+            accelerate a trend that’s already underway, where the "data for model builders" market is transforming -
+            moving away from large groups of fungible labelers toward small, well-paid groups of experts who don't label
+            so much as guide and steer models at the edge of their capabilities.
+
+        </p>
+        <p>
+            For large model builders, their <a href="https://medium.com/@cognidownunder/openais-o3-vs-o1-the-dawn-of-hyper-intelligent-ai-e9fe972fd1bb">top end
+                models</a> can start
+            providing clear, well reasoned chains-of-thought that can be further used to improve their models. Compute matters even more
+            now. If DeepSeek could do this with $5 million in reinforcement learning, what can OpenAI and Anthropic and
+            Google do with billions of dollars?
+        </p>
+        <h3>Expert markets</h3>
+        <p>
+            This shift is already impacting data labeling. While mass data labeling is declining, expertise in areas like
+            software engineering, math, languages and law is becoming crucial. The alpha isn't in having more labeled
+            data - it's in having the right experts who can understand where models fail and provide targeted,
+            high-quality feedback. Expert marketplaces will be the new meta, where model builders can pick and choose
+            the expertise they want for improving their models. This is what we are building at Telus Digital, as fast
+            as we can.
+        </p>
+        <p>
+            The future belongs to architectures that learn efficiently, not datasets that scale infinitely. Smart money
+            is betting on systems that can identify their own gaps and improve iteratively. The next wave of AI
+            companies will win through learning velocity, not data hoarding. Most importantly, for enterprises, this
+            means that custom, private models trained via reinforcement learning on proprietary userflows are suddenly
+            viable. For startups, domain expertise matters more than data volume.
+        </p>
+        <img src="blogpostpics/thereisnowall.png" alt="There is no wall" class="halfresponsive"><br>
+
+        <p>
+            DeepSeek showed us that models can learn complex stuff through trial and error, with just a bit of expert
+            guidance in the right places. The pessimists were right about one thing: we are hitting a wall with
+            traditional data labeling. But like many walls in AI, we're not so much crashing into it as finding a door
+            right through it.
+        </p>
+    </div>
+    <script src="firebase-config.js"></script>
+
+</body>
+
+</html>
