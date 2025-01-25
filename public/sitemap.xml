@@ -3,8 +3,31 @@
     <url>
         <loc>https://www.bharatbheesetti.com</loc>
     </url>
-    <url>
         <loc>https://www.bharatbheesetti.com/blog</loc>
+    </url>
+    <url>
+        <loc>https://www.bharatbheesetti.com/bookshelf</loc>
+    </url>
+    <url>
+        <loc>https://www.bharatbheesetti.com/films</loc>
+    </url>
+    <url>
+        <loc>https://www.bharatbheesetti.com/projects</loc>
+    </url>
+     <url>
+        <loc>https://www.bharatbheesetti.com/posts/datawall</loc>
+    <url>
+    <url>
+        <loc>https://www.bharatbheesetti.com/posts/mnist_post</loc>
+    <url>
+    <url>
+        <loc>https://www.bharatbheesetti.com/posts/dune2_review</loc>
+    </url>
+    <url>
+        <loc>https://www.bharatbheesetti.com/posts/neural_net_visualizer</loc>
+    </url>
+    <url>
+        <loc>https://www.bharatbheesetti.com/posts/llama_says_whatsapp</loc>
     </url>
     <url>
         <loc>https://www.bharatbheesetti.com/posts/enshittification</loc>
@@ -23,14 +46,5 @@
     </url>
     <url>
         <loc>https://www.bharatbheesetti.com/posts/older_posts</loc>
-    </url>
-    <url>
-        <loc>https://www.bharatbheesetti.com/bookshelf</loc>
-    </url>
-    <url>
-        <loc>https://www.bharatbheesetti.com/films</loc>
-    </url>
-    <url>
-        <loc>https://www.bharatbheesetti.com/projects</loc>
     </url>
 </urlset>
