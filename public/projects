@@ -10,24 +10,84 @@
 
 <body>
     <div id="vertical-menu">
-        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
-        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
-        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
+        <a href="https://www.bharatbheesetti.com">Home</a><br><br>
+        <a href="https://www.bharatbheesetti.com/blog">Blog</a><br><br>
+        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf</a><br><br>
+        <a href="https://www.bharatbheesetti.com/projects">Projects</a><br><br>
     </div>
-
-    <div id="left">
-        
-    </div>
-    
+    <div id="left"></div>
+   
     <div id="content">
         <h2>Projects</h2>
-        <ul>
-            <li> <a href="https://github.com/BharatBheesetti/Scribe">Simple audio transcriber</a></li><br>
-            <li> <a href="posts/neural_net_visualizer">Neural net visualizer</a></li><br>
-        </ul>
-        
+        <p>As a product manager who codes, I build simple tools to solve problems and understand technology better. Here are some of my experiments:</p>
+
+        <div class="project-card">
+            <h3>NSE Corporate Filing Actions Bot</h3>
+            <p>A practical tool that automates downloading NSE's corporate filing data. Built this to understand:</p>
+            <ul>
+                <li>How AI agents can automate browser interactions</li>
+                <li>Scheduling automated tasks with GitHub Actions - haven't figured this out yet</li>
+            </ul>
+            <a href="https://github.com/BharatBheesetti/NSE_Corp_Filing_Actions_bot" class="project-link">View Project →</a>
+        </div>
+
+        <div class="project-card">
+            <h3>Neural Network from Scratch</h3>
+            <p>Built a basic MNIST digit classifier using raw Python to understand:</p>
+            <ul>
+                <li>Core concepts behind neural networks</li>
+                <li>How modern ML frameworks work under the hood</li>
+                <li>Achieved ~76% accuracy without using numpy or ML libraries</li>
+            </ul>
+            <a href="https://github.com/BharatBheesetti/MNIST-Classifier-with-only-Python" class="project-link">View Project →</a>
+        </div>
+
+        <div class="project-card">
+            <h3>Scribe - Audio Transcription Tool</h3>
+            <p>A simple desktop app that records and transcribes audio. Built because:</p>
+            <ul>
+                <li>Wanted a local, private, secure app for Windows.</li>
+                <li>see what python app dev looked like</li>
+                <li>Create a practical tool for note-taking</li>
+            </ul>
+            <a href="https://github.com/BharatBheesetti/Scribe" class="project-link">View Project →</a>
+        </div>
     </div>
-    <script src="firebase-config.js"></script>
+
+    <style>
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .project-card h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .project-card ul {
+            margin-bottom: 16px;
+        }
+        
+        .project-card li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        
+        .project-link {
+            display: inline-block;
+            color: #483D8B;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .project-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </body>
 </html>
 
