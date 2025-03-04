@@ -19,7 +19,18 @@
    
     <div id="content">
         <h2>Projects</h2>
-        <p>As a product manager who codes, I build simple tools to solve problems and understand technology better. Here are some of my experiments:</p>
+        <p>Trying to build tools to solve problems and understand technology better. Here are some of my experiments:</p>
+        
+        <div class="project-card">
+            <h3>Parking simulator</h3>
+            <p>For people who don't want to scratch their car getting out of a tight spot</p>
+            <ul>
+                <li>My parking spot is congested. Simple web app to create your parking spot and see how to get out.</li>
+                <li>Building an RL agent to find the best possible way out</li>
+            </ul>
+            <a href="https://www.bharatbheesetti.com/project/parking_simulator.html" class="project-link">View Project →</a>
+        </div>
+
 
         <div class="project-card">
             <h3>NSE Corporate Filing Actions Bot</h3>

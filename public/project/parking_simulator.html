@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Practice</title>
+    <style>
+        :root {
+            --primary: #3498db;
+            --primary-light: #5dade2;
+            --primary-dark: #2980b9;
+            --secondary: #7f8c8d;
+            --secondary-light: #95a5a6;
+            --danger: #e74c3c;
+            --danger-light: #f5b7b1;
+            --success: #2ecc71;
+            --success-light: #a9dfbf;
+            --warning: #f39c12;
+            --panel-bg: #ecf0f1;
+            --border-radius: 6px;
+            --shadow: 0 2px 5px rgba(0,0,0,0.1);
+            --transition: all 0.2s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        #app-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            margin: 10px;
+        }
+        
+        #canvas-container {
+            flex: 1;
+            position: relative;
+            background-color: #fff;
+            overflow: hidden;
+            border-radius: var(--border-radius) 0 0 var(--border-radius);
+        }
+        
+        #simulation-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: crosshair;
+        }
+        
+        #controls-panel {
+            width: 280px;
+            background-color: var(--panel-bg);
+            padding: 20px;
+            border-left: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        
+        .control-section {
+            margin-bottom: 24px;
+            background: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .section-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #2c3e50;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 6px;
+        }
+        
+        .btn {
+            padding: 10px 14px;
+            margin: 6px 0;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            width: 100%;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transform: translateY(-1px);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-light);
+        }
+        
+        .btn-warning {
+            background-color: var(--danger);
+        }
+        
+        .btn-warning:hover {
+            background-color: #c0392b;
+        }
+        
+        .steering-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            background: #f8f9fa;
+            padding: 8px;
+            border-radius: var(--border-radius);
+        }
+        
+        .steering-value {
+            width: 50px;
+            text-align: center;
+            margin: 0 10px;
+            font-weight: bold;
+            font-size: 16px;
+            color: var(--primary-dark);
+        }
+        
+        .status-info {
+            margin-top: 10px;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border-radius: var(--border-radius);
+            border: 1px solid #e1e5e8;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .key-instructions {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #666;
+            background: white;
+            padding: 12px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            line-height: 1.6;
+        }
+        
+        .collision-warning {
+            color: white;
+            font-weight: bold;
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: var(--danger);
+            border-radius: var(--border-radius);
+            display: none;
+            animation: pulse 1.5s infinite;
+            text-align: center;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+        
+        .distance-info {
+            margin-top: 10px;
+            font-size: 13px;
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: var(--border-radius);
+            border: 1px solid #e1e5e8;
+            line-height: 1.6;
+        }
+        
+        /* Small notification toast */
+        #notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 12px 20px;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            display: none;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translate(-50%, 20px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="app-container">
+        <div id="canvas-container">
+            <canvas id="simulation-canvas"></canvas>
+        </div>
+        
+        <div id="controls-panel">
+            <div class="control-section">
+                <div class="section-title">Design Your Parking Scenario</div>
+                <button id="draw-mode-btn" class="btn">✏️ Draw Obstacle</button>
+                <button id="edit-mode-btn" class="btn">🔄 Move & Resize</button>
+                <button id="clear-btn" class="btn btn-warning">🗑️ Clear Canvas</button>
+            </div>
+            
+            <div class="control-section">
+                <div class="section-title">Car Controls</div>
+                <div class="steering-display">
+                    <button id="steer-left-btn" class="btn">◀</button>
+                    <div class="steering-value">0°</div>
+                    <button id="steer-right-btn" class="btn">▶</button>
+                </div>
+                <button id="drive-forward-btn" class="btn">↑ Drive Forward</button>
+                <button id="drive-backward-btn" class="btn">↓ Reverse</button>
+                <button id="reset-car-btn" class="btn btn-secondary">↻ Reset Position</button>
+            </div>
+            
+            <div class="control-section">
+                <div class="section-title">Vehicle Status</div>
+                <div class="status-info" id="status-info">
+                    Car position: X=0.0m, Y=0.0m<br>
+                    Heading: 0°<br>
+                    Steering angle: 0°
+                </div>
+                <div class="distance-info" id="distance-info">
+                    Distances:<br>
+                    Front: 0.0m<br>
+                    Right: 0.0m<br>
+                    Rear: 0.0m<br>
+                    Left: 0.0m
+                </div>
+                <div class="collision-warning" id="collision-warning">
+                    ⚠️ COLLISION DETECTED!
+                </div>
+            </div>
+            
+            <div class="key-instructions">
+                <strong>⌨️ Keyboard Shortcuts</strong><br>
+                ↑ - Drive forward<br>
+                ↓ - Reverse<br>
+                ← - Steer left<br>
+                → - Steer right<br>
+                R - Reset position<br>
+                Delete - Remove selected obstacle
+            </div>
+        </div>
+    </div>
+    
+    <div id="notification"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Canvas setup
+            const canvas = document.getElementById('simulation-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Controls
+            const steerLeftBtn = document.getElementById('steer-left-btn');
+            const steerRightBtn = document.getElementById('steer-right-btn');
+            const driveForwardBtn = document.getElementById('drive-forward-btn');
+            const driveBackwardBtn = document.getElementById('drive-backward-btn');
+            const resetCarBtn = document.getElementById('reset-car-btn');
+            const drawModeBtn = document.getElementById('draw-mode-btn');
+            const editModeBtn = document.getElementById('edit-mode-btn');
+            const clearBtn = document.getElementById('clear-btn');
+            const notification = document.getElementById('notification');
+            
+            // Status elements
+            const steeringValueDisplay = document.querySelector('.steering-value');
+            const statusInfo = document.getElementById('status-info');
+            const distanceInfo = document.getElementById('distance-info');
+            const collisionWarning = document.getElementById('collision-warning');
+            
+            // Constants
+            const GRID_SIZE = 0.2; // meters per square
+            const PIXELS_PER_METER = 80; // scale for drawing
+            const MAX_STEERING_ANGLE = 35; // degrees
+            const TURNING_RADIUS = 5.3; // meters
+            const CAR_LENGTH = 4; // meters
+            const CAR_WIDTH = 1.821; // meters
+            const CAR_WHEELBASE = 2.6; // meters
+            const STEP_SIZE = 0.1; // meters per movement step
+            const RESIZE_HANDLE_SIZE = 8; // pixels
+            
+            // State
+            let canvasWidth = 0;
+            let canvasHeight = 0;
+            let drawMode = false;
+            let editMode = false;
+            let isDrawing = false;
+            let isDragging = false;
+            let isResizing = false;
+            let drawStartX = 0;
+            let drawStartY = 0;
+            let selectedObstacle = null;
+            let resizeHandle = null;
+            let dragOffsetX = 0;
+            let dragOffsetY = 0;
+            let tempObstacle = null;
+            let obstacles = [];
+            let car = {
+                x: 4, // meters
+                y: 4, // meters
+                heading: 0, // degrees
+                steeringAngle: 0, // degrees
+                isColliding: false
+            };
+            
+            // Animation
+            let lastTime = 0;
+            let animationId = null;
+            
+            // Initialize
+            function init() {
+                resizeCanvas();
+                window.addEventListener('resize', resizeCanvas);
+                setupEventListeners();
+                updateDisplay();
+                
+                lastTime = performance.now();
+                animationId = requestAnimationFrame(animate);
+                
+                // Show initial instruction
+                showNotification("Click and drag to create obstacles. In Edit mode, click to select, then move or resize.");
+            }
+            
+            function resizeCanvas() {
+                const container = canvas.parentElement;
+                canvasWidth = container.clientWidth;
+                canvasHeight = container.clientHeight;
+                
+                canvas.width = canvasWidth;
+                canvas.height = canvasHeight;
+                
+                draw();
+            }
+            
+            function setupEventListeners() {
+                // Mouse events
+                canvas.addEventListener('mousedown', function(e) {
+                    const rect = canvas.getBoundingClientRect();
+                    const mouseX = (e.clientX - rect.left) / PIXELS_PER_METER;
+                    const mouseY = (e.clientY - rect.top) / PIXELS_PER_METER;
+                    
+                    if (drawMode) {
+                        // Start drawing a new obstacle
+                        isDrawing = true;
+                        drawStartX = mouseX;
+                        drawStartY = mouseY;
+                        tempObstacle = { x: mouseX, y: mouseY, width: 0, height: 0 };
+                    } 
+                    else if (editMode) {
+                        // Check if clicking on a resize handle
+                        if (selectedObstacle) {
+                            const handle = getResizeHandleAtPosition(mouseX, mouseY);
+                            if (handle) {
+                                isResizing = true;
+                                resizeHandle = handle;
+                                return;
+                            }
+                        }
+                        
+                        // Check if clicking on an obstacle
+                        selectedObstacle = getObstacleAt(mouseX, mouseY);
+                        
+                        if (selectedObstacle) {
+                            isDragging = true;
+                            dragOffsetX = mouseX - selectedObstacle.x;
+                            dragOffsetY = mouseY - selectedObstacle.y;
+                        }
+                        
+                        draw(); // Redraw to show selection
+                    }
+                });
+                
+                canvas.addEventListener('mousemove', function(e) {
+                    const rect = canvas.getBoundingClientRect();
+                    const mouseX = (e.clientX - rect.left) / PIXELS_PER_METER;
+                    const mouseY = (e.clientY - rect.top) / PIXELS_PER_METER;
+                    
+                    // Update cursor based on what's under it
+                    updateCursor(mouseX, mouseY);
+                    
+                    if (isDrawing && tempObstacle) {
+                        // Drawing a new obstacle
+                        tempObstacle.width = mouseX - tempObstacle.x;
+                        tempObstacle.height = mouseY - tempObstacle.y;
+                        draw();
+                    } 
+                    else if (isDragging && selectedObstacle) {
+                        // Dragging an obstacle
+                        selectedObstacle.x = mouseX - dragOffsetX;
+                        selectedObstacle.y = mouseY - dragOffsetY;
+                        checkCollisions();
+                        calculateDistances();
+                        draw();
+                    }
+                    else if (isResizing && selectedObstacle && resizeHandle) {
+                        // Resizing an obstacle
+                        resizeObstacle(selectedObstacle, resizeHandle, mouseX, mouseY);
+                        checkCollisions();
+                        calculateDistances();
+                        draw();
+                    }
+                });
+                
+                canvas.addEventListener('mouseup', function() {
+                    if (isDrawing && tempObstacle) {
+                        isDrawing = false;
+                        
+                        // Normalize the obstacle (ensure width and height are positive)
+                        if (tempObstacle.width < 0) {
+                            tempObstacle.x += tempObstacle.width;
+                            tempObstacle.width = Math.abs(tempObstacle.width);
+                        }
+                        
+                        if (tempObstacle.height < 0) {
+                            tempObstacle.y += tempObstacle.height;
+                            tempObstacle.height = Math.abs(tempObstacle.height);
+                        }
+                        
+                        // Add the obstacle if it has some size
+                        if (tempObstacle.width > 0.1 && tempObstacle.height > 0.1) {
+                            obstacles.push(tempObstacle);
+                            checkCollisions();
+                            calculateDistances();
+                        }
+                        
+                        tempObstacle = null;
+                        draw();
+                    }
+                    
+                    // Reset interaction flags
+                    isDrawing = false;
+                    isDragging = false;
+                    isResizing = false;
+                    resizeHandle = null;
+                });
+                
+                // Button events
+                drawModeBtn.addEventListener('click', function() {
+                    drawMode = !drawMode;
+                    
+                    if (drawMode) {
+                        editMode = false;
+                        editModeBtn.classList.remove('btn-secondary');
+                        drawModeBtn.classList.add('btn-secondary');
+                        drawModeBtn.textContent = "Exit Draw Mode";
+                        selectedObstacle = null;
+                        canvas.style.cursor = 'crosshair';
+                        showNotification("Draw Mode: Click and drag to create obstacles");
+                    } else {
+                        drawModeBtn.classList.remove('btn-secondary');
+                        drawModeBtn.textContent = "Draw Obstacle (Click & Drag)";
+                        canvas.style.cursor = 'default';
+                    }
+                    
+                    draw();
+                });
+                
+                editModeBtn.addEventListener('click', function() {
+                    editMode = !editMode;
+                    
+                    if (editMode) {
+                        drawMode = false;
+                        drawModeBtn.classList.remove('btn-secondary');
+                        editModeBtn.classList.add('btn-secondary');
+                        editModeBtn.textContent = "Exit Edit Mode";
+                        showNotification("Edit Mode: Click to select, drag to move, use handles to resize");
+                    } else {
+                        editModeBtn.classList.remove('btn-secondary');
+                        editModeBtn.textContent = "Edit Mode (Move/Resize)";
+                        selectedObstacle = null;
+                        canvas.style.cursor = 'default';
+                    }
+                    
+                    draw();
+                });
+                
+                clearBtn.addEventListener('click', function() {
+                    obstacles = [];
+                    tempObstacle = null;
+                    selectedObstacle = null;
+                    isDrawing = false;
+                    isDragging = false;
+                    isResizing = false;
+                    checkCollisions();
+                    calculateDistances();
+                    draw();
+                });
+                
+                steerLeftBtn.addEventListener('click', function() {
+                    steerCar(-1);
+                });
+                
+                steerRightBtn.addEventListener('click', function() {
+                    steerCar(1);
+                });
+                
+                driveForwardBtn.addEventListener('click', function() {
+                    moveCar(true);
+                });
+                
+                driveBackwardBtn.addEventListener('click', function() {
+                    moveCar(false);
+                });
+                
+                resetCarBtn.addEventListener('click', function() {
+                    resetCar();
+                });
+                
+                // Keyboard events
+                document.addEventListener('keydown', function(e) {
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                            steerCar(-1);
+                            break;
+                        case 'ArrowRight':
+                            steerCar(1);
+                            break;
+                        case 'ArrowUp':
+                            moveCar(true);
+                            break;
+                        case 'ArrowDown':
+                            moveCar(false);
+                            break;
+                        case 'r':
+                        case 'R':
+                            resetCar();
+                            break;
+                        case 'Delete':
+                        case 'Backspace':
+                            if (selectedObstacle) {
+                                deleteSelectedObstacle();
+                            }
+                            break;
+                    }
+                });
+            }
+            
+            function steerCar(direction) {
+                // direction: 1 for right, -1 for left
+                car.steeringAngle += direction;
+                
+                // Limit steering angle
+                if (car.steeringAngle > MAX_STEERING_ANGLE) {
+                    car.steeringAngle = MAX_STEERING_ANGLE;
+                } else if (car.steeringAngle < -MAX_STEERING_ANGLE) {
+                    car.steeringAngle = -MAX_STEERING_ANGLE;
+                }
+                
+                updateDisplay();
+                draw();
+            }
+            
+            function moveCar(forward) {
+                // Calculate movement
+                const distance = forward ? STEP_SIZE : -STEP_SIZE;
+                
+                // If steering angle is close to zero, go straight
+                if (Math.abs(car.steeringAngle) < 0.1) {
+                    const radHeading = car.heading * Math.PI / 180;
+                    car.x += distance * Math.cos(radHeading);
+                    car.y += distance * Math.sin(radHeading);
+                } else {
+                    // Calculate turning radius
+                    const steeringRadians = car.steeringAngle * Math.PI / 180;
+                    // For FWD, turning radius is based on rear wheels
+                    const radius = CAR_WHEELBASE / Math.tan(Math.abs(steeringRadians));
+                    
+                    // Calculate the center of the turning circle
+                    const radHeading = car.heading * Math.PI / 180;
+                    
+                    // When driving forward with left steering (negative angle), the car turns left (counterclockwise)
+                    // When driving backward with left steering, the car turns right (clockwise)
+                    // So for backward driving, we need to invert the turning direction
+                    const turnDirection = forward ? 
+                        Math.sign(car.steeringAngle) : 
+                        -Math.sign(car.steeringAngle);
+                    
+                    // For FWD, the turning center is behind the car (perpendicular to heading)
+                    const turnCenterX = car.x - radius * Math.sin(radHeading) * Math.sign(car.steeringAngle);
+                    const turnCenterY = car.y + radius * Math.cos(radHeading) * Math.sign(car.steeringAngle);
+                    
+                    // Calculate angular change based on arc length
+                    const angularChange = Math.abs(distance) * 180 / (Math.PI * radius);
+                    
+                    // Apply the angular change in the correct direction
+                    car.heading = (car.heading + (angularChange * turnDirection)) % 360;
+                    if (car.heading < 0) car.heading += 360;
+                    
+                    // Calculate new position
+                    const newRadHeading = (car.heading * Math.PI / 180);
+                    const distanceToCenter = radius;
+                    car.x = turnCenterX + distanceToCenter * Math.sin(newRadHeading) * Math.sign(car.steeringAngle);
+                    car.y = turnCenterY - distanceToCenter * Math.cos(newRadHeading) * Math.sign(car.steeringAngle);
+                }
+                
+                checkCollisions();
+                calculateDistances();
+                updateDisplay();
+                draw();
+            }
+            
+            function resetCar() {
+                car.x = 4;
+                car.y = 4;
+                car.heading = 0;
+                car.steeringAngle = 0;
+                car.isColliding = false;
+                
+                checkCollisions();
+                calculateDistances();
+                updateDisplay();
+                draw();
+            }
+            
+            function getCarCorners() {
+                const radHeading = car.heading * Math.PI / 180;
+                const cos = Math.cos(radHeading);
+                const sin = Math.sin(radHeading);
+                
+                // Calculate half dimensions
+                const halfLength = CAR_LENGTH / 2;
+                const halfWidth = CAR_WIDTH / 2;
+                
+                // Calculate corners
+                return [
+                    // Front left
+                    {
+                        x: car.x + halfLength * cos - halfWidth * sin,
+                        y: car.y + halfLength * sin + halfWidth * cos
+                    },
+                    // Front right
+                    {
+                        x: car.x + halfLength * cos + halfWidth * sin,
+                        y: car.y + halfLength * sin - halfWidth * cos
+                    },
+                    // Rear right
+                    {
+                        x: car.x - halfLength * cos + halfWidth * sin,
+                        y: car.y - halfLength * sin - halfWidth * cos
+                    },
+                    // Rear left
+                    {
+                        x: car.x - halfLength * cos - halfWidth * sin,
+                        y: car.y - halfLength * sin + halfWidth * cos
+                    }
+                ];
+            }
+            
+            function getCarPerimeter() {
+                const corners = getCarCorners();
+                const perimeter = [];
+                
+                // Add points along each edge of the car
+                for (let i = 0; i < corners.length; i++) {
+                    const startCorner = corners[i];
+                    const endCorner = corners[(i + 1) % corners.length];
+                    
+                    // Add 10 points along each edge
+                    for (let j = 0; j <= 10; j++) {
+                        const t = j / 10;
+                        perimeter.push({
+                            x: startCorner.x + t * (endCorner.x - startCorner.x),
+                            y: startCorner.y + t * (endCorner.y - startCorner.y)
+                        });
+                    }
+                }
+                
+                return perimeter;
+            }
+            
+            function checkCollisions() {
+                car.isColliding = false;
+                const perimeter = getCarPerimeter();
+                
+                // Check collision with obstacles
+                for (const obstacle of obstacles) {
+                    for (const point of perimeter) {
+                        if (
+                            point.x >= obstacle.x && 
+                            point.x <= obstacle.x + obstacle.width &&
+                            point.y >= obstacle.y && 
+                            point.y <= obstacle.y + obstacle.height
+                        ) {
+                            car.isColliding = true;
+                            break;
+                        }
+                    }
+                    if (car.isColliding) break;
+                }
+                
+                // Check collision with canvas borders
+                for (const point of perimeter) {
+                    if (
+                        point.x < 0 || 
+                        point.x > canvasWidth / PIXELS_PER_METER ||
+                        point.y < 0 || 
+                        point.y > canvasHeight / PIXELS_PER_METER
+                    ) {
+                        car.isColliding = true;
+                        break;
+                    }
+                }
+                
+                // Update collision warning display
+                collisionWarning.style.display = car.isColliding ? 'block' : 'none';
+            }
+            
+            function calculateDistances() {
+                // We'll find the distance to the 4 nearest surfaces
+                // First, get the car's position and corners
+                const corners = getCarCorners();
+                
+                // Calculate center points of the car's sides
+                const frontCenter = {
+                    x: (corners[0].x + corners[1].x) / 2,
+                    y: (corners[0].y + corners[1].y) / 2
+                };
+                
+                const rightCenter = {
+                    x: (corners[1].x + corners[2].x) / 2,
+                    y: (corners[1].y + corners[2].y) / 2
+                };
+                
+                const rearCenter = {
+                    x: (corners[2].x + corners[3].x) / 2,
+                    y: (corners[2].y + corners[3].y) / 2
+                };
+                
+                const leftCenter = {
+                    x: (corners[3].x + corners[0].x) / 2,
+                    y: (corners[3].y + corners[0].y) / 2
+                };
+                
+                // Get distances to the nearest obstacles or walls in each direction
+                const frontDistance = getMinDistanceInDirection(frontCenter, car.heading);
+                const rightDistance = getMinDistanceInDirection(rightCenter, (car.heading + 90) % 360);
+                const rearDistance = getMinDistanceInDirection(rearCenter, (car.heading + 180) % 360);
+                const leftDistance = getMinDistanceInDirection(leftCenter, (car.heading + 270) % 360);
+                
+                // Update the distance info display
+                distanceInfo.innerHTML = `
+                    Distances:<br>
+                    Front: ${frontDistance.toFixed(2)}m<br>
+                    Right: ${rightDistance.toFixed(2)}m<br>
+                    Rear: ${rearDistance.toFixed(2)}m<br>
+                    Left: ${leftDistance.toFixed(2)}m
+                `;
+            }
+            
+            function getMinDistanceInDirection(startPoint, direction) {
+                const radDirection = direction * Math.PI / 180;
+                const dirX = Math.cos(radDirection);
+                const dirY = Math.sin(radDirection);
+                
+                // Check distance to canvas edges
+                let minDistance = Number.MAX_VALUE;
+                
+                // Calculate distance to the edges of the canvas
+                if (dirX > 0) {
+                    // Distance to right edge
+                    const dist = ((canvasWidth / PIXELS_PER_METER) - startPoint.x) / dirX;
+                    if (dist < minDistance) minDistance = dist;
+                } else if (dirX < 0) {
+                    // Distance to left edge
+                    const dist = -startPoint.x / dirX;
+                    if (dist < minDistance) minDistance = dist;
+                }
+                
+                if (dirY > 0) {
+                    // Distance to bottom edge
+                    const dist = ((canvasHeight / PIXELS_PER_METER) - startPoint.y) / dirY;
+                    if (dist < minDistance) minDistance = dist;
+                } else if (dirY < 0) {
+                    // Distance to top edge
+                    const dist = -startPoint.y / dirY;
+                    if (dist < minDistance) minDistance = dist;
+                }
+                
+                // Check distance to obstacles
+                for (const obstacle of obstacles) {
+                    // Calculate intersections with the obstacle's edges
+                    // Top edge
+                    if (dirY > 0) {
+                        const t = (obstacle.y - startPoint.y) / dirY;
+                        const x = startPoint.x + t * dirX;
+                        if (t > 0 && t < minDistance && x >= obstacle.x && x <= obstacle.x + obstacle.width) {
+                            minDistance = t;
+                        }
+                    }
+                    
+                    // Bottom edge
+                    if (dirY < 0) {
+                        const t = (obstacle.y + obstacle.height - startPoint.y) / dirY;
+                        const x = startPoint.x + t * dirX;
+                        if (t > 0 && t < minDistance && x >= obstacle.x && x <= obstacle.x + obstacle.width) {
+                            minDistance = t;
+                        }
+                    }
+                    
+                    // Left edge
+                    if (dirX > 0) {
+                        const t = (obstacle.x - startPoint.x) / dirX;
+                        const y = startPoint.y + t * dirY;
+                        if (t > 0 && t < minDistance && y >= obstacle.y && y <= obstacle.y + obstacle.height) {
+                            minDistance = t;
+                        }
+                    }
+                    
+                    // Right edge
+                    if (dirX < 0) {
+                        const t = (obstacle.x + obstacle.width - startPoint.x) / dirX;
+                        const y = startPoint.y + t * dirY;
+                        if (t > 0 && t < minDistance && y >= obstacle.y && y <= obstacle.y + obstacle.height) {
+                            minDistance = t;
+                        }
+                    }
+                }
+                
+                return minDistance;
+            }
+            
+            function updateDisplay() {
+                // Update steering value display
+                steeringValueDisplay.textContent = `${car.steeringAngle.toFixed(0)}°`;
+                
+                // Update status info
+                statusInfo.innerHTML = `
+                    Car position: X=${car.x.toFixed(1)}m, Y=${car.y.toFixed(1)}m<br>
+                    Heading: ${car.heading.toFixed(0)}°<br>
+                    Steering angle: ${car.steeringAngle.toFixed(0)}°
+                `;
+            }
+            
+            // ENHANCED FUNCTIONS FOR OBSTACLE EDITING
+            
+            function getObstacleAt(x, y) {
+                // Check if point is inside any obstacle (check in reverse order to select top obstacle)
+                for (let i = obstacles.length - 1; i >= 0; i--) {
+                    const obstacle = obstacles[i];
+                    if (
+                        x >= obstacle.x && 
+                        x <= obstacle.x + obstacle.width &&
+                        y >= obstacle.y && 
+                        y <= obstacle.y + obstacle.height
+                    ) {
+                        return obstacle;
+                    }
+                }
+                return null;
+            }
+            
+            function getResizeHandleAtPosition(x, y) {
+                if (!selectedObstacle) return null;
+                
+                const handleSize = RESIZE_HANDLE_SIZE / PIXELS_PER_METER;
+                
+                // Check each corner
+                const corners = [
+                    { position: 'nw', x: selectedObstacle.x, y: selectedObstacle.y },
+                    { position: 'ne', x: selectedObstacle.x + selectedObstacle.width, y: selectedObstacle.y },
+                    { position: 'se', x: selectedObstacle.x + selectedObstacle.width, y: selectedObstacle.y + selectedObstacle.height },
+                    { position: 'sw', x: selectedObstacle.x, y: selectedObstacle.y + selectedObstacle.height }
+                ];
+                
+                for (const corner of corners) {
+                    if (
+                        x >= corner.x - handleSize && 
+                        x <= corner.x + handleSize &&
+                        y >= corner.y - handleSize && 
+                        y <= corner.y + handleSize
+                    ) {
+                        return corner.position;
+                    }
+                }
+                
+                return null;
+            }
+            
+            function resizeObstacle(obstacle, handle, mouseX, mouseY) {
+                // New width and height variables
+                let newX = obstacle.x;
+                let newY = obstacle.y;
+                let newWidth = obstacle.width;
+                let newHeight = obstacle.height;
+                
+                // Resize based on the handle
+                switch (handle) {
+                    case 'nw':
+                        newWidth = obstacle.x + obstacle.width - mouseX;
+                        newHeight = obstacle.y + obstacle.height - mouseY;
+                        newX = mouseX;
+                        newY = mouseY;
+                        break;
+                    case 'ne':
+                        newWidth = mouseX - obstacle.x;
+                        newHeight = obstacle.y + obstacle.height - mouseY;
+                        newY = mouseY;
+                        break;
+                    case 'se':
+                        newWidth = mouseX - obstacle.x;
+                        newHeight = mouseY - obstacle.y;
+                        break;
+                    case 'sw':
+                        newWidth = obstacle.x + obstacle.width - mouseX;
+                        newHeight = mouseY - obstacle.y;
+                        newX = mouseX;
+                        break;
+                }
+                
+                // Only update if dimensions are positive
+                if (newWidth > 0.1 && newHeight > 0.1) {
+                    obstacle.x = newX;
+                    obstacle.y = newY;
+                    obstacle.width = newWidth;
+                    obstacle.height = newHeight;
+                }
+            }
+            
+            function deleteSelectedObstacle() {
+                if (selectedObstacle) {
+                    const index = obstacles.indexOf(selectedObstacle);
+                    if (index > -1) {
+                        obstacles.splice(index, 1);
+                        selectedObstacle = null;
+                        checkCollisions();
+                        calculateDistances();
+                        draw();
+                        showNotification("Obstacle deleted");
+                    }
+                }
+            }
+            
+            function updateCursor(x, y) {
+                if (drawMode) {
+                    canvas.style.cursor = 'crosshair';
+                    return;
+                }
+                
+                if (!editMode) {
+                    canvas.style.cursor = 'default';
+                    return;
+                }
+                
+                // Check for resize handles first
+                if (selectedObstacle) {
+                    const handle = getResizeHandleAtPosition(x, y);
+                    if (handle) {
+                        switch (handle) {
+                            case 'nw':
+                            case 'se':
+                                canvas.style.cursor = 'nwse-resize';
+                                return;
+                            case 'ne':
+                            case 'sw':
+                                canvas.style.cursor = 'nesw-resize';
+                                return;
+                        }
+                    }
+                }
+                
+                // Then check if over an obstacle
+                const obstacle = getObstacleAt(x, y);
+                if (obstacle) {
+                    canvas.style.cursor = 'move';
+                } else {
+                    canvas.style.cursor = 'default';
+                }
+            }
+            
+            function showNotification(message, duration = 3000) {
+                notification.textContent = message;
+                notification.style.display = 'block';
+                
+                clearTimeout(notification.timer);
+                notification.timer = setTimeout(function() {
+                    notification.style.display = 'none';
+                }, duration);
+            }
+            
+            function draw() {
+                if (!ctx) return;
+                
+                // Clear canvas
+                ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+                
+                // Draw grid
+                drawGrid();
+                
+                // Draw obstacles
+                drawObstacles();
+                
+                // Draw temporary obstacle (if drawing)
+                if (tempObstacle) {
+                    ctx.fillStyle = 'rgba(255, 165, 0, 0.5)';
+                    ctx.fillRect(
+                        tempObstacle.x * PIXELS_PER_METER,
+                        tempObstacle.y * PIXELS_PER_METER,
+                        tempObstacle.width * PIXELS_PER_METER,
+                        tempObstacle.height * PIXELS_PER_METER
+                    );
+                    ctx.strokeStyle = '#ff8c00';
+                    ctx.lineWidth = 2;
+                    ctx.strokeRect(
+                        tempObstacle.x * PIXELS_PER_METER,
+                        tempObstacle.y * PIXELS_PER_METER,
+                        tempObstacle.width * PIXELS_PER_METER,
+                        tempObstacle.height * PIXELS_PER_METER
+                    );
+                }
+                
+                // Draw car
+                drawCar();
+                
+                // Draw distance lines
+                drawDistanceLines();
+            }
+            
+            function drawGrid() {
+                const gridPixels = GRID_SIZE * PIXELS_PER_METER;
+                const majorGridInterval = 5; // Draw darker lines every 5 grid cells (1 meter)
+                
+                // Background
+                ctx.fillStyle = '#f8f9fa';
+                ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+                
+                // Minor grid lines
+                ctx.strokeStyle = '#e9ecef';
+                ctx.lineWidth = 1;
+                
+                // Draw vertical lines
+                for (let x = 0; x < canvasWidth; x += gridPixels) {
+                    ctx.beginPath();
+                    
+                    // Check if this is a major grid line
+                    if (Math.round(x / gridPixels) % majorGridInterval === 0) {
+                        ctx.strokeStyle = '#dee2e6';
+                        ctx.lineWidth = 1;
+                    } else {
+                        ctx.strokeStyle = '#e9ecef';
+                        ctx.lineWidth = 0.5;
+                    }
+                    
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, canvasHeight);
+                    ctx.stroke();
+                }
+                
+                // Draw horizontal lines
+                for (let y = 0; y < canvasHeight; y += gridPixels) {
+                    ctx.beginPath();
+                    
+                    // Check if this is a major grid line
+                    if (Math.round(y / gridPixels) % majorGridInterval === 0) {
+                        ctx.strokeStyle = '#dee2e6';
+                        ctx.lineWidth = 1;
+                    } else {
+                        ctx.strokeStyle = '#e9ecef';
+                        ctx.lineWidth = 0.5;
+                    }
+                    
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(canvasWidth, y);
+                    ctx.stroke();
+                }
+                
+                // Add some grid measurements (every 5 meters)
+                ctx.font = '10px "Segoe UI", Roboto, sans-serif';
+                ctx.fillStyle = '#adb5bd';
+                ctx.textAlign = 'left';
+                ctx.textBaseline = 'top';
+                
+                // Add meter markings on the edges
+                const meterInterval = 5 * gridPixels * majorGridInterval; // 5 meters
+                
+                for (let x = meterInterval; x < canvasWidth; x += meterInterval) {
+                    const meters = x / PIXELS_PER_METER;
+                    ctx.fillText(`${meters}m`, x + 2, 2);
+                }
+                
+                for (let y = meterInterval; y < canvasHeight; y += meterInterval) {
+                    const meters = y / PIXELS_PER_METER;
+                    ctx.fillText(`${meters}m`, 2, y + 2);
+                }
+            }
+            
+            function drawObstacles() {
+                for (const obstacle of obstacles) {
+                    // Different style for selected obstacle
+                    if (obstacle === selectedObstacle && editMode) {
+                        ctx.fillStyle = 'rgba(93, 173, 226, 0.6)';
+                        ctx.strokeStyle = '#2980b9';
+                    } else {
+                        ctx.fillStyle = 'rgba(149, 165, 166, 0.6)';
+                        ctx.strokeStyle = '#7f8c8d';
+                    }
+                    
+                    ctx.lineWidth = 2;
+                    
+                    // Draw the obstacle with rounded corners
+                    const radius = 5;
+                    const x = obstacle.x * PIXELS_PER_METER;
+                    const y = obstacle.y * PIXELS_PER_METER;
+                    const width = obstacle.width * PIXELS_PER_METER;
+                    const height = obstacle.height * PIXELS_PER_METER;
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(x + radius, y);
+                    ctx.lineTo(x + width - radius, y);
+                    ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+                    ctx.lineTo(x + width, y + height - radius);
+                    ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+                    ctx.lineTo(x + radius, y + height);
+                    ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+                    ctx.lineTo(x, y + radius);
+                    ctx.quadraticCurveTo(x, y, x + radius, y);
+                    ctx.closePath();
+                    ctx.fill();
+                    ctx.stroke();
+                    
+                    // Add "Obstacle" text in the center
+                    ctx.fillStyle = '#2c3e50';
+                    ctx.font = '14px "Segoe UI", Roboto, sans-serif';
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(
+                        'Obstacle',
+                        (obstacle.x + obstacle.width/2) * PIXELS_PER_METER,
+                        (obstacle.y + obstacle.height/2) * PIXELS_PER_METER
+                    );
+                    
+                    // Draw resize handles if selected
+                    if (obstacle === selectedObstacle && editMode) {
+                        drawResizeHandles(obstacle);
+                    }
+                }
+            }
+            
+            function drawResizeHandles(obstacle) {
+                const handleSize = RESIZE_HANDLE_SIZE / 2;
+                
+                // Corner positions
+                const corners = [
+                    { x: obstacle.x, y: obstacle.y }, // NW
+                    { x: obstacle.x + obstacle.width, y: obstacle.y }, // NE
+                    { x: obstacle.x + obstacle.width, y: obstacle.y + obstacle.height }, // SE
+                    { x: obstacle.x, y: obstacle.y + obstacle.height } // SW
+                ];
+                
+                // Draw handles with nicer styling
+                for (const corner of corners) {
+                    // Draw filled circle with shadow
+                    ctx.beginPath();
+                    ctx.arc(
+                        corner.x * PIXELS_PER_METER,
+                        corner.y * PIXELS_PER_METER,
+                        handleSize,
+                        0,
+                        Math.PI * 2
+                    );
+                    ctx.fillStyle = '#2980b9';
+                    ctx.fill();
+                    
+                    // Add white border
+                    ctx.lineWidth = 2;
+                    ctx.strokeStyle = 'white';
+                    ctx.stroke();
+                }
+            }
+            
+            function drawCar() {
+                const corners = getCarCorners();
+                
+                // Draw the car body with rounded corners
+                ctx.beginPath();
+                
+                // Create a smooth car shape
+                const p1 = { x: corners[0].x * PIXELS_PER_METER, y: corners[0].y * PIXELS_PER_METER };
+                const p2 = { x: corners[1].x * PIXELS_PER_METER, y: corners[1].y * PIXELS_PER_METER };
+                const p3 = { x: corners[2].x * PIXELS_PER_METER, y: corners[2].y * PIXELS_PER_METER };
+                const p4 = { x: corners[3].x * PIXELS_PER_METER, y: corners[3].y * PIXELS_PER_METER };
+                
+                // Calculate the rounding factor (10% of the shorter car dimension)
+                const rounding = Math.min(CAR_LENGTH, CAR_WIDTH) * 0.1 * PIXELS_PER_METER;
+                
+                // Function to get points along the line for curved corners
+                function getPointAlongLine(p1, p2, distance) {
+                    const totalDist = Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+                    const ratio = distance / totalDist;
+                    return {
+                        x: p1.x + (p2.x - p1.x) * ratio,
+                        y: p1.y + (p2.y - p1.y) * ratio
+                    };
+                }
+                
+                // Create the rounded rectangle path
+                const c1 = getPointAlongLine(p1, p2, rounding);
+                const c2 = getPointAlongLine(p2, p1, rounding);
+                const c3 = getPointAlongLine(p2, p3, rounding);
+                const c4 = getPointAlongLine(p3, p2, rounding);
+                const c5 = getPointAlongLine(p3, p4, rounding);
+                const c6 = getPointAlongLine(p4, p3, rounding);
+                const c7 = getPointAlongLine(p4, p1, rounding);
+                const c8 = getPointAlongLine(p1, p4, rounding);
+                
+                ctx.moveTo(c1.x, c1.y);
+                ctx.lineTo(c2.x, c2.y);
+                ctx.quadraticCurveTo(p2.x, p2.y, c3.x, c3.y);
+                ctx.lineTo(c4.x, c4.y);
+                ctx.quadraticCurveTo(p3.x, p3.y, c5.x, c5.y);
+                ctx.lineTo(c6.x, c6.y);
+                ctx.quadraticCurveTo(p4.x, p4.y, c7.x, c7.y);
+                ctx.lineTo(c8.x, c8.y);
+                ctx.quadraticCurveTo(p1.x, p1.y, c1.x, c1.y);
+                
+                ctx.closePath();
+                
+                // Car gradient fill
+                const centerX = car.x * PIXELS_PER_METER;
+                const centerY = car.y * PIXELS_PER_METER;
+                const gradient = ctx.createRadialGradient(
+                    centerX, centerY, 0,
+                    centerX, centerY, CAR_LENGTH * PIXELS_PER_METER / 1.5
+                );
+                
+                if (car.isColliding) {
+                    gradient.addColorStop(0, 'rgba(231, 76, 60, 0.9)');
+                    gradient.addColorStop(1, 'rgba(192, 57, 43, 0.7)');
+                    ctx.strokeStyle = '#c0392b';
+                } else {
+                    gradient.addColorStop(0, 'rgba(52, 152, 219, 0.9)');
+                    gradient.addColorStop(1, 'rgba(41, 128, 185, 0.7)');
+                    ctx.strokeStyle = '#2980b9';
+                }
+                
+                ctx.fillStyle = gradient;
+                ctx.lineWidth = 2;
+                ctx.fill();
+                ctx.stroke();
+                
+                // Draw directional indicator (arrow)
+                const radHeading = car.heading * Math.PI / 180;
+                const frontX = car.x + (CAR_LENGTH / 2) * 0.8 * Math.cos(radHeading);
+                const frontY = car.y + (CAR_LENGTH / 2) * 0.8 * Math.sin(radHeading);
+                
+                // Draw arrow
+                ctx.beginPath();
+                ctx.moveTo(frontX * PIXELS_PER_METER, frontY * PIXELS_PER_METER);
+                ctx.lineTo(
+                    (frontX + 0.3 * Math.cos(radHeading)) * PIXELS_PER_METER,
+                    (frontY + 0.3 * Math.sin(radHeading)) * PIXELS_PER_METER
+                );
+                
+                // Arrow head
+                const headSize = 8;
+                const arrowTipX = (frontX + 0.3 * Math.cos(radHeading)) * PIXELS_PER_METER;
+                const arrowTipY = (frontY + 0.3 * Math.sin(radHeading)) * PIXELS_PER_METER;
+                
+                ctx.lineTo(
+                    arrowTipX - headSize * Math.cos(radHeading - Math.PI/6),
+                    arrowTipY - headSize * Math.sin(radHeading - Math.PI/6)
+                );
+                ctx.moveTo(arrowTipX, arrowTipY);
+                ctx.lineTo(
+                    arrowTipX - headSize * Math.cos(radHeading + Math.PI/6),
+                    arrowTipY - headSize * Math.sin(radHeading + Math.PI/6)
+                );
+                
+                ctx.strokeStyle = car.isColliding ? '#c0392b' : '#e74c3c';
+                ctx.lineWidth = 3;
+                ctx.stroke();
+                
+                // Draw wheels
+                drawWheels();
+                
+                // Add "Vehicle" text in the center
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 14px "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(
+                    'Vehicle',
+                    car.x * PIXELS_PER_METER,
+                    car.y * PIXELS_PER_METER
+                );
+            }
+            
+            function drawWheels() {
+                const radHeading = car.heading * Math.PI / 180;
+                const cos = Math.cos(radHeading);
+                const sin = Math.sin(radHeading);
+                
+                // Wheel dimensions
+                const wheelWidth = 0.2;
+                const wheelLength = 0.4;
+                
+                // Position of the wheels relative to car center
+                const frontAxleOffset = CAR_WHEELBASE / 2;
+                const rearAxleOffset = -CAR_WHEELBASE / 2;
+                const wheelSpacing = CAR_WIDTH / 2 - 0.1;
+                
+                // Calculate wheel positions
+                const wheels = [
+                    // Front left
+                    {
+                        x: car.x + frontAxleOffset * cos - wheelSpacing * sin,
+                        y: car.y + frontAxleOffset * sin + wheelSpacing * cos,
+                        angle: radHeading + car.steeringAngle * Math.PI / 180
+                    },
+                    // Front right
+                    {
+                        x: car.x + frontAxleOffset * cos + wheelSpacing * sin,
+                        y: car.y + frontAxleOffset * sin - wheelSpacing * cos,
+                        angle: radHeading + car.steeringAngle * Math.PI / 180
+                    },
+                    // Rear left
+                    {
+                        x: car.x + rearAxleOffset * cos - wheelSpacing * sin,
+                        y: car.y + rearAxleOffset * sin + wheelSpacing * cos,
+                        angle: radHeading
+                    },
+                    // Rear right
+                    {
+                        x: car.x + rearAxleOffset * cos + wheelSpacing * sin,
+                        y: car.y + rearAxleOffset * sin - wheelSpacing * cos,
+                        angle: radHeading
+                    }
+                ];
+                
+                // Draw each wheel
+                ctx.fillStyle = '#333';
+                for (const wheel of wheels) {
+                    ctx.save();
+                    ctx.translate(wheel.x * PIXELS_PER_METER, wheel.y * PIXELS_PER_METER);
+                    ctx.rotate(wheel.angle);
+                    
+                    ctx.fillRect(
+                        -wheelLength/2 * PIXELS_PER_METER,
+                        -wheelWidth/2 * PIXELS_PER_METER,
+                        wheelLength * PIXELS_PER_METER,
+                        wheelWidth * PIXELS_PER_METER
+                    );
+                    
+                    ctx.restore();
+                }
+            }
+            
+            function drawDistanceLines() {
+                // Draw lines to the 4 nearest surfaces
+                const corners = getCarCorners();
+                
+                // Calculate center points of the car's sides
+                const frontCenter = {
+                    x: (corners[0].x + corners[1].x) / 2,
+                    y: (corners[0].y + corners[1].y) / 2
+                };
+                
+                const rightCenter = {
+                    x: (corners[1].x + corners[2].x) / 2,
+                    y: (corners[1].y + corners[2].y) / 2
+                };
+                
+                const rearCenter = {
+                    x: (corners[2].x + corners[3].x) / 2,
+                    y: (corners[2].y + corners[3].y) / 2
+                };
+                
+                const leftCenter = {
+                    x: (corners[3].x + corners[0].x) / 2,
+                    y: (corners[3].y + corners[0].y) / 2
+                };
+                
+                // Draw the distance lines
+                drawDistanceLine(frontCenter, car.heading, 'red');
+                drawDistanceLine(rightCenter, (car.heading + 90) % 360, 'green');
+                drawDistanceLine(rearCenter, (car.heading + 180) % 360, 'blue');
+                drawDistanceLine(leftCenter, (car.heading + 270) % 360, 'purple');
+            }
+            
+            function drawDistanceLine(startPoint, direction, color) {
+                const radDirection = direction * Math.PI / 180;
+                const dirX = Math.cos(radDirection);
+                const dirY = Math.sin(radDirection);
+                
+                // Find distance to the nearest obstacle or wall
+                const distance = getMinDistanceInDirection(startPoint, direction);
+                
+                // Calculate end point
+                const endX = startPoint.x + distance * dirX;
+                const endY = startPoint.y + distance * dirY;
+                
+                // Define line colors based on distance
+                let lineColor, textColor;
+                if (distance < 0.5) {
+                    lineColor = '#e74c3c'; // Red for danger
+                    textColor = '#c0392b';
+                } else if (distance < 1.0) {
+                    lineColor = '#f39c12'; // Orange for warning
+                    textColor = '#d35400';
+                } else {
+                    switch(direction % 360) {
+                        case 0: 
+                            lineColor = '#3498db'; // Front - blue
+                            textColor = '#2980b9';
+                            break;
+                        case 90: 
+                            lineColor = '#2ecc71'; // Right - green
+                            textColor = '#27ae60';
+                            break;
+                        case 180: 
+                            lineColor = '#9b59b6'; // Rear - purple
+                            textColor = '#8e44ad';
+                            break;
+                        case 270: 
+                            lineColor = '#e67e22'; // Left - orange
+                            textColor = '#d35400';
+                            break;
+                        default:
+                            lineColor = color;
+                            textColor = color;
+                    }
+                }
+                
+                // Draw the line with gradient
+                const gradient = ctx.createLinearGradient(
+                    startPoint.x * PIXELS_PER_METER, 
+                    startPoint.y * PIXELS_PER_METER,
+                    endX * PIXELS_PER_METER, 
+                    endY * PIXELS_PER_METER
+                );
+                gradient.addColorStop(0, lineColor);
+                gradient.addColorStop(1, 'rgba(255,255,255,0.5)');
+                
+                ctx.beginPath();
+                ctx.moveTo(startPoint.x * PIXELS_PER_METER, startPoint.y * PIXELS_PER_METER);
+                ctx.lineTo(endX * PIXELS_PER_METER, endY * PIXELS_PER_METER);
+                ctx.strokeStyle = gradient;
+                ctx.lineWidth = distance < 1.0 ? 2 : 1;
+                ctx.setLineDash([8, 4]);
+                ctx.stroke();
+                ctx.setLineDash([]);
+                
+                // Draw end point dot
+                ctx.beginPath();
+                ctx.arc(
+                    endX * PIXELS_PER_METER,
+                    endY * PIXELS_PER_METER,
+                    4,
+                    0,
+                    Math.PI * 2
+                );
+                ctx.fillStyle = lineColor;
+                ctx.fill();
+                
+                // Draw distance text
+                const midX = (startPoint.x + endX) / 2;
+                const midY = (startPoint.y + endY) / 2;
+                
+                ctx.font = '12px "Segoe UI", Roboto, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                
+                // Add a background to the text with rounded corners
+                const text = `${distance.toFixed(1)}m`;
+                const textWidth = ctx.measureText(text).width;
+                const padding = 4;
+                const cornerRadius = 4;
+                
+                // Draw rounded rectangle background
+                ctx.beginPath();
+                ctx.moveTo((midX * PIXELS_PER_METER) - textWidth/2 - padding + cornerRadius, (midY * PIXELS_PER_METER) - 8);
+                ctx.lineTo((midX * PIXELS_PER_METER) + textWidth/2 + padding - cornerRadius, (midY * PIXELS_PER_METER) - 8);
+                ctx.quadraticCurveTo((midX * PIXELS_PER_METER) + textWidth/2 + padding, (midY * PIXELS_PER_METER) - 8, 
+                                    (midX * PIXELS_PER_METER) + textWidth/2 + padding, (midY * PIXELS_PER_METER) - 8 + cornerRadius);
+                ctx.lineTo((midX * PIXELS_PER_METER) + textWidth/2 + padding, (midY * PIXELS_PER_METER) + 8 - cornerRadius);
+                ctx.quadraticCurveTo((midX * PIXELS_PER_METER) + textWidth/2 + padding, (midY * PIXELS_PER_METER) + 8,
+                                    (midX * PIXELS_PER_METER) + textWidth/2 + padding - cornerRadius, (midY * PIXELS_PER_METER) + 8);
+                ctx.lineTo((midX * PIXELS_PER_METER) - textWidth/2 - padding + cornerRadius, (midY * PIXELS_PER_METER) + 8);
+                ctx.quadraticCurveTo((midX * PIXELS_PER_METER) - textWidth/2 - padding, (midY * PIXELS_PER_METER) + 8,
+                                    (midX * PIXELS_PER_METER) - textWidth/2 - padding, (midY * PIXELS_PER_METER) + 8 - cornerRadius);
+                ctx.lineTo((midX * PIXELS_PER_METER) - textWidth/2 - padding, (midY * PIXELS_PER_METER) - 8 + cornerRadius);
+                ctx.quadraticCurveTo((midX * PIXELS_PER_METER) - textWidth/2 - padding, (midY * PIXELS_PER_METER) - 8,
+                                    (midX * PIXELS_PER_METER) - textWidth/2 - padding + cornerRadius, (midY * PIXELS_PER_METER) - 8);
+                ctx.closePath();
+                
+                ctx.fillStyle = 'white';
+                ctx.fill();
+                ctx.strokeStyle = lineColor;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+                
+                // Draw text
+                ctx.fillStyle = textColor;
+                ctx.fillText(text, midX * PIXELS_PER_METER, midY * PIXELS_PER_METER);
+            }
+            
+            function animate(timestamp) {
+                const deltaTime = (timestamp - lastTime) / 1000; // Convert to seconds
+                lastTime = timestamp;
+                
+                // We don't need continuous updates for this app
+                // but keeping the animation loop for possible future enhancements
+                
+                animationId = requestAnimationFrame(animate);
+            }
+            
+            // Start the app
+            init();
+        });
+    </script>
+</body>
+</html>
