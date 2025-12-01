@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <META charset="UTF-8">
+    <META name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>My lessons with Andrej</title>
+</head>
+
+<body>
+    <div id="vertical-menu">
+        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
+        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
+        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
+        <a href="https://www.bharatbheesetti.com/projects">Projects</a><br><br>
+    </div>
+
+    <div id="left">
+
+    </div>
+
+    <div id="content">
+        <h1>My Lessons with Andrej</h1>
+        <p><i>A PM's experiments with machine learning - from the ground up</i></p>
+
+        <p>I'm working through Andrej Karpathy's <a href="https://github.com/karpathy/nn-zero-to-hero">Neural Networks:
+                Zero to Hero</a> series. <br><br>This is my learning journal with all my mistakes, frustrations and learnings.
+            Code and notes at <a href="https://github.com/BharatBheesetti/neural-networks-zero-to-hero">my GitHub
+                repo</a>.</p>
+        
+        <h3>Progress so far</h3>
+        <ul>
+            <li>✅ micrograd</li>
+            <li>✅ makemore</li>
+            <li>⬜ makemore Part 2: MLP</li>
+            <li>⬜ makemore Part 3: BatchNorm</li>
+            <li>⬜ makemore Part 4: Backprop</li>
+            <li>⬜ makemore Part 5: WaveNet</li>
+            <li>⬜ GPT Implementation</li>
+            <li>⬜ Tokenizer Implementation</li>
+        </ul>
+
+
+        <h3><a href="https://www.youtube.com/watch?v=VMj-3S1tku0">Video 1: Micrograd</a></h3>
+
+        <p>Multiple false starts, forgotten and picked back up again.</p>
+
+        <p>I had built out a neural net from scratch using raw Python before, so this was fairly straightforward. I knew
+            quite well how a neuron functioned.</p>
+
+        <p>But this was also my first use of PyTorch. It took me some time to get used to zips. Also weirdly, and kinda
+            sheepish → it took me a while to grok the neuron → layer → Multi layer perceptron code. I wanted to make
+            sure I got it. So I had to run through it a couple of times.</p>
+
+        <p>LLMs weren't too useful for me here, at least out of the box. They were good at answering questions and
+            explaining, but they tended to give me an answer immediately. I found this prompt from Dwarkesh that talked
+            about the Socratic method, and that was slightly better, though it wasn't perfect. It still seemed to focus
+            the Socratic method of questioning on things I was already grokking, not the stuff I needed help with. But
+            that might have been a skill issue.</p>
+
+        <p>Generally speaking though, it is absolutely amazing how a person like Karpathy can share something like this.
+            Simple, straightforward and a detailed introduction to people looking to learn. A massive, pure hearted win
+            for the internet as a whole. Information does want to be free!</p>
+
+        <p>While trying to minimize the loss function, I ended up with a stupid error in the code that took me a bunch
+            of time to understand. The loss function wasn't backpropagating correctly.</p>
+
+        <p><b>Notes to self:</b></p>
+        <ul>
+            <li>Try out DSPy</li>
+            <li>Target: finetune my own LLM and write a blog post on that</li>
+        </ul>
+
+        <p>Always fun to dutifully spend the time thinking about every piece I'm writing out, create a tiny network and
+            see it become a dutiful little overachiever that isn't good at much else outside the tiny specialisation it
+            spent all its life optimising for. David Foster Wallace would be proud.</p>
+
+        <h3><a href="https://www.youtube.com/watch?v=PaCmpygFfXo">Video 2: Makemore</a></h3>
+
+        <p>Makemore is about having a list of things, and us trying to make more like them. The goal is, given a list of
+            around 35k names (I mixed some Indian ones in with the Western ones), can we build something that generates
+            a realistic sounding fake name? After this session, I have a newfound respect for all those fantasy name
+            generator websites I frequented when I was 10. It is hard to create good, fake names.
+
+        <p>This video took me the better part of a day to work through. Bigrams are conceptually simple, but I decided
+            to do them by myself first, before starting the video. This led to a bunch of wrestling with dictionaries
+            and list manipulation in Python. Given the "handwritten code, read docs and understand" limit I'd set for
+            myself, it was more frictional than I've been used to for the last year and a half. Felt good though.</p>
+
+        <p>After a lot of work, my bigram model generated the following masterpieces. Indian name websites would bow
+            their heads in shame:</p>
+        <ol>
+            <li>Araida</li>
+            <li>Jrlaitviana</li>
+            <li>Meniraliaba</li>
+            <li>Diesqud</li>
+            <li>Dan</li>
+        </ol>
+
+        <p>Sounds obvious in retrospect, but it was crushing to see that significant effort could be spent to get
+            something with no concept of word boundaries, or even an understanding of words. It was a perfect Markov
+            chain producing perfect garbage.</p>
+
+        <p>But all in all, it was a good day. Built a decent bigram model myself, used the tutorial to learn how to do
+            it with basic PyTorch, and then tied it all together by training a toy neural net that approximated the
+            direct calculation. Felt a bit stretched by the end, and capped it off with a nice kombucha and a late night
+            football match.</p>
+
+        <p><b>Notes to self:</b></p>
+        <ul>
+            <li>Print intermediate values, a lot.</li>
+            <li>Test smaller, train small, then big.</li>
+            <li>When it feels like it should be easier in a spreadsheet, use pandas.</li>
+        </ul>
+
+        <p><b>Next:</b> Multi-layer perceptrons. Time to add actual depth.</p>
+
+        <br><br>
+        <p><i>Last updated: November 2025</i></p>
+
+
+        <br><br>
+        <p><a href="https://www.bharatbheesetti.com/blog">← Back to Blog</a></p>
+    </div>
+
+    <script src="firebase-config.js"></script>
+</body>
+
+</html>

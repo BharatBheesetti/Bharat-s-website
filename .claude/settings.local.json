@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(test -f \"C:\\Users\\bhara\\Documents\\website\\public\\blog\")",
+      "Bash(test -f \"C:\\Users\\bhara\\Documents\\website\\public\\bookshelf\")",
+      "Bash(test:*)",
+      "Bash(for post in one-battle-after-another zero_to_hero personal-software datawall mnist_post dune2_review neural_net_visualizer llama_says_whatsapp enshittification gdp writers_block_and_product_management love_in_the_time_of_LLMs potting_balls older_posts)",
+      "Bash(do test -f \"C:\\Users\\bhara\\Documents\\website\\public\\posts$post\")",
+      "Bash(echo:*)",
+      "Bash(done)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

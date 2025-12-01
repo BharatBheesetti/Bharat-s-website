@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "bharatbheesetti-28996",
     "public": "public",
     "ignore": [
       "firebase.json",

@@ -48,6 +48,20 @@ body {
   margin: 1em auto;
 }
 
+.imageresponsive {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 1em auto;
+}
+
+@media (max-width: 768px) {
+  .imageresponsive {
+    width: 100%;
+  }
+}
+
+
 /* Code blocks styling */
 details {
   margin: 10px 0;

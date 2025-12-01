@@ -87,3 +87,30 @@ pre {
 code {
   font-family: monospace;
 }
+
+.social-links a {
+  font-size: 24px;
+  margin-right: 20px;
+  color: #333; 
+}
+
+/*Set specific colors for each platform */
+.social-links .fa-x-twitter {
+  color: #000;
+}
+
+.social-links .fa-blog {
+  color: #e17b77;
+}
+
+.social-links .fa-linkedin {
+  color: #0077B5;
+}
+
+.social-links .fa-github {
+  color: #333333;
+}
+
+.connect-section {
+  margin-top: 20px; /* Adds space above the icons */
+}

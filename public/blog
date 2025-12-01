@@ -24,6 +24,9 @@
     <div id="content">
         <h2>Blog</h2>
         <ul>
+            <li> Nov 2025&emsp;<a href="posts/zero_to_hero"><b>My Lessons with Andrej</b></a></li><br>
+            <li> Nov 2025&emsp;<a href="posts/personal-software"><b>Janet, Raj and the dawn of Personal Software</b></a></li><br>
+            <li> Nov 2025&emsp;<a href="posts/one-battle-after-another"><b>One battle after another: a review</b></a></li><br>
             <li> Jan 2025&emsp;<a href="posts/datawall"><b>The data wall or: How I learned to stop worrying and love the bitter lesson</b></a></li><br>
             <li> Jan 2025&emsp;<a href="posts/mnist_post"><b>Building a Neural Network from Scratch: MNIST classifier with just Python</b></a></li><br>
             <li> Nov 2024&emsp;<a href="posts/llama_says_whatsapp"><b>Llama says WhatsApp - voluntary lock-in</b></a></li><br>

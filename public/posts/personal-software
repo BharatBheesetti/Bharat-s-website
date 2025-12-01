@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <META charset="UTF-8">
+    <META name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Personal Software</title>
+</head>
+
+<body>
+    <div id="vertical-menu">
+        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
+        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
+        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
+        <a href="https://www.bharatbheesetti.com/projects">Projects</a><br><br>
+
+    </div>
+
+    <div id="left">
+    </div>
+
+    <div id="content">
+        <h1>Janet, Raj and the dawn of Personal Software</h1>
+        <h3>How Personal Software will change enterprise work</h3>
+
+        <p>It's long past time. Call it. LLMs are eating the world. </p>
+
+        <p>
+            I was trying to get a $50 software subscription approved. It should have been a five minute task. But I
+            found myself navigating a Kafkaesque maze ft. a Slack request, an email to a manager, a login to a portal
+            that timed out twice, and finally, a DM on gchat so that the processing could actually go through. Somewhere
+            along the way, while I was resetting a password, I realised that we haven't automated work, we have just
+            digitized bureaucracy.</p>
+
+        <p>If you look at a day in the life of a knowledge worker, they are mostly moving data from one SaaS silo to
+            another, a fleshy API router between incompatible databases. There's billions in replacing flesh
+            API routing with LLM-ified workflows.
+        </p>
+
+        <img src="blogpostpics/money_in_the_stand.jpg" alt="Michael, there's always money in enterprise"
+            class="imageresponsive">
+
+
+        <p>We've been automating enterprise workflows over the past year, and many of them actually work now, not just shine in demos. CV
+            screening, fraud checks, support ticket routing, data quality checks. Every enterprise workflow can be
+            automated to an alarming degree. Until the beginning of 2025, LLMs have promised the moon and broken
+            in staging. But now, many of these solutions actually work. LLM evaluations sitting at clear decision nodes
+            in workflows, armed with clear rubrics, human review on edge cases, logs that feed back into eval
+            dashboards. That's the meal ticket.</p>
+
+        <p>
+            <b>Note</b>: The gap from demo to production is actually quite hard and takes more time than expected. I
+            like to say that the last 10% takes half the time. Evaluations, testing and implementation with strong HITL
+            that actually improves the system is still an unsolved problem at scale, with most product teams doing
+            active discovery in areas like LLM gateways, evals, traceability, prompt management and more.
+        </p>
+
+        <p>Something fundamental is changing in how enterprises build software and who builds it.</p>
+
+        <h2>Excel in a trenchcoat - 24/7 support included </h2>
+
+        <p>Most B2B SaaS tools are basically CRUD (Create, Read, Update, Delete) apps with a ShadCN UI and enterprise
+            billing slapped on top. They sell you a "workflow," but what they really sell is a varyingly rigid opinion
+            on how your enterprise workflows should look like. You buy a tool like Monday.com or Jira, and suddenly
+            you’re bending your actual process to fit the tool’s database schema. Projects or Initiatives start cropping
+            up out of nowhere. And this creates a <b>fragmentation tax.</b></p>
+
+        <img src="blogpostpics/saas_is_excel_in_trench.png" alt="Excel in a trenchcoat" class="imageresponsive">
+
+
+        <p>Consider invoice processing at a mid-sized company. Janet processes and keeps track of invoices and payments. She works with her finance counterpart, Raj. They use Netsuite and Coupa for spend and invoice management. A typical workflow would look something like this. 
+
+        <img src="blogpostpics/before_workflow_personalsoftware.png" alt="Before workflow" class="imageresponsive">
+
+        
+        <p>Two people, one consistent workflow, and four tools. Fairly simple, but as Janet and Raj's teams grow, each tool used in the process becomes a source of friction and data silos.</p>
+
+        <p> If you wanted to improve this system before LLM's, your only bet was to invest in brittle automation or buy another SaaS tool to integrate the first four. But LLMs change the physics of this problem. They allow us to move from Software as a Service to Service as Software. </p>
+
+
+        <h2>Bob from finance now costs 10 bucks</h2>
+
+        <p>LLM's, from a business context, are intelligence in a bottle that you pay
+            micro-cents for. When intelligence gets cheap, many enterprise workflows start getting automatable.With LLMs now, the situation would look something more like this. </p>
+
+        <img src="blogpostpics/after_workflow_personal_software.png" alt="Workflow hell resolved" class="imageresponsive">
+
+        <p>One well designed workflow with LLM "brains" at critical junctures and human oversight on the 10-15% of cases that need escalation. And more importantly, the workflow logic lives in one place, not split across multiple SaaS tools. The enterprise owns it fully. And when they need to change the rules, they update the rubric instead of reconfiguring three vendor systems.</p>
+
+        <p>
+        Owning the workflow data matters. Your CV screening criteria, your invoice approval logic, your support ticket triage rules; this is the proprietary workflow knowledge that powers your company. Building a tool around your data often beats integrating a generic tool that approximates your process. </p>
+        
+
+        <h2>Exit Middle SaaS. Enter the era of evals</h2>
+
+        <p> LLMs allow enterprise ops to run leaner and faster. Crack teams with 2-3 people, strong problem-solving
+            skills and a handful of LLMs can now do what previously needed a large team. This
+            shift requires thinking differently about how we build. </p>
+
+        <img src="blogpostpics/schematic_personalsoftware.png" alt="LLMs make it better" class="imageresponsive">
+
+        <p>Brendan Foody, Mercor's CEO, told Lenny Rachitsky in September that we're entering the "era of evals" where
+            evaluations become the PRDs, the sales collateral, even the product itself. He's right. Evals are what make
+            Personal Software possible. You can't ship narrow AI tools without workflow-native measurement. The eval is
+            the product. </p>
+
+        <p>If you've read my <a href="https://www.bharatbheesetti.com/posts/datawall"> data
+                wall piece</a>, this is the sequel. Instead of Goodhart-Law coded benchmarks, enterprise workflow evals
+            are what matter. Clear rubrics, measurable outcomes, dashboards that prove value to stakeholders. </p>
+
+
+        <h2> Market impact notes </h2>
+
+        <p>Vendor pricing models are breaking.
+        <p>The data is clear. <a
+                href="https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/">Klarna
+                AI </a> implemented LLM flows to great success, taking on the work of nearly 700 agents. They didn't buy
+            intercom, they built workflows that automated the job Intercom was supposed to help their agents do. And
+            Intercom is now incentivised to not price by seat anymore, but <a href="https://fin.ai/pricing">by tickets
+                resolved</a>. When the software does the work, seat-based pricing ($30/user/month) becomes mathematical
+            nonsense.</p>
+
+
+        <p>The middle layer is getting squeezed. Not all SaaS dies. Services with deep proprietary data, network
+            effects, or regulatory moats survives. Infrastructure platforms survive. Every other generic
+            SaaS that kind of fits your process but not really; their days are numbered.</p>
+
+        <p>This leads to the rise of Personal Software. Instead of buying a bloated, one-size-fits-none tool,
+            teams will build bespoke, disposable agents for their specific workflows. Now, I know what you're thinking.
+            "Great, Bharat, you just reinvented Shadow IT. Now I have 500 unmaintained Python scripts running my finance
+            department." </p>
+
+        <p>That's the wrong way to look at it. The world is learning to use LLMs to accelerate work. The good team are using engineering rigor while building strong workflows that help operations. This shows up a large vacuum for a new type of talent: The LLM-native problem
+            solver. This is a PM, ops person or engineer who understands that in a probabilistic world, you don't write
+            rules. You write Evals. </p>
+
+        After all, Janet's boss doesn't want Janet to manage tools for invoices. She wants the invoices managed.
+
+
+        <br><br><br>
+        <p><a href="https://www.bharatbheesetti.com/blog">← Back to Blog</a></p>
+    </div>
+
+    <script src="firebase-config.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <META charset="UTF-8">
+    <META name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>One Battle After Another - A Review | Bharat Bheesetti</title>
+</head>
+
+<body>
+    <div id="vertical-menu">
+        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
+        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
+        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
+        <a href="https://www.bharatbheesetti.com/projects">Projects</a><br><br>
+    </div>
+
+    <div id="left">
+
+    </div>
+
+    <div id="content">
+        <h1>One battle after another - A Review</h1>
+
+        <p>There's something about Paul Thomas Anderson movies that cuts straight through. When I first watched
+            <em>Boogie Nights</em>, I was struck by how humanistic the entire film felt, this rich emotional world that
+            reveals new facets each time you return to it. <em>Magnolia</em> is one such film. I can revisit it
+            endlessly and always find something new. With <em>One Battle After Another</em>, PTA finally made the action
+            movie he's been circling for decades, and watching it in IMAX felt necessary, urgent even. The scale demands
+            it.</p>
+
+        <p>The first thing that struck me is how dynamic this film is despite its nearly three-hour runtime. There are
+            remarkably few lag points, and PTA uses this sprawling canvas to do something unexpected: he makes a weird,
+            profoundly weird movie about revolution, fatherhood, and the fragile pockets of community that persist in
+            the face of brutal oppression. Without naming names directly, with smart racial representation woven
+            throughout, the film offers searing commentary on the current state of American politics. Immigrant
+            detention, white supremacist power structures, the surveillance state, all rendered with a surreal edge that
+            makes the horror both more bearable and more cutting.</p>
+
+        <p>Bob (Leonardo DiCaprio) and his daughter Willa (Chase Infiniti) are the emotional core holding everything
+            together. Willa has had to grow up faster than she should have. There's a teenage resentment simmering
+            beneath the surface, the burden of caring for a parent who should be caring for you, the exhaustion of
+            managing someone else's paranoia and substance abuse while trying to figure out your own life. But
+            DiCaprio's Bob is trying. Imperfectly, messily, but genuinely. He's a washed-up revolutionary living off the
+            grid in a haze of weed smoke and old movies, but when Willa goes missing, something clarifies in him. The
+            film doesn't romanticize his failures or his redemption. It just shows a father who loves his daughter and
+            is willing to run through hell in a plaid bathrobe to get her back. And somehow, that's enough.</p>
+
+        <p>Sean Penn plays Colonel Steven J. Lockjaw with no restraint, all coiled menace and desperate need, and it
+            works precisely because the character is so clearly attracted to things he believes he shouldn't be
+            indulging in. He's terrifying, pathetic, and darkly hilarious, often in the same scene. His core pathos is
+            self-betrayal: he has decided that belonging in a specific group, the Christmas Adventurers Club, a bougie
+            secret society of Christian nationalists, is more important than being himself. Watching him curry favor
+            with these men, watching him perform cruelty to prove his worth, is both revolting and heartbreaking. Penn
+            makes you understand the psychology of fascism: the way insecurity curdles into violence, the way people
+            trade their humanity for a seat at a table that doesn't actually want them.</p>
+
+        <p>Then there's that chase scene. I need to talk about the chase scene. It might be one of the best I've ever
+            seen in cinema. Maybe <em>Ford v Ferrari</em> comes close to eliciting the same emotions in me, but this
+            felt different. The cars cresting and plummeting over hilly terrain, the rhythm of up and down until you
+            feel like you're falling into the screen. It's viscerally stunning, yes, but Jonny Greenwood's score
+            elevates it beyond mere spectacle. What makes it land emotionally is the desperation underneath. You want
+            Bob to survive. You need him to make it. That primal desire for the protagonist to just <em>get there</em>,
+            to save his daughter, to not fail again. That's the emotional weight the chase carries, and it lands
+            perfectly.</p>
+
+        <p>Benicio del Toro's Sergio runs what he calls his "Latino Harriet Tubman situation," a modern underground
+            railroad for undocumented immigrants. The film doesn't sentimentalize this. It shows the danger, the
+            precarity, the constant threat of violence from Lockjaw's forces. But it also shows the skater sequences,
+            those moments of joy and movement and togetherness that exist in defiance of the system trying to crush
+            them. PTA is arguing something essential here: people naturally gravitate toward helping each other. These
+            pockets of resistance and mutual aid have always existed, and they are the core of what we should be trying
+            to protect. There's an understated nobility in del Toro's performance. He's not playing a saint or a savior,
+            just someone who refuses to stop helping. And that refusal is its own form of protest.</p>
+
+        <p>Because that's what this film ultimately is: a protest movie. It finds joy in togetherness and community even
+            in the face of harsh, dehumanizing systems. It doesn't look away from the brutality. The detention centers,
+            the white supremacist violence, the authoritarian creep, all of it is plain for everyone to see. But the
+            film also insists that beauty can be snatched from the jaws of oppression. The bonds that hold people
+            together, the ways we care for each other when the state has abandoned us, the messy imperfect love between
+            a father and daughter trying to survive their own past. These are the things worth fighting for.</p>
+
+        <p>PTA has made something strange and vital here. It's frenetic and funny and frightening, often in the same
+            scene. It's his most entertaining film and one of his most thematically rich. In times like these, we need
+            stories that uplift us not through false hope but through clear-eyed recognition of what endures. <em>One
+                Battle After Another</em> is that rare thing: a film that acknowledges the fight is rigged, the
+            revolutionaries might fail, the daughter might inherit an unfinished battle, and still insists that showing
+            up, trying, protecting each other, is worth everything.</p>
+
+        <p>I'll be catching it again soon. Some films demand to be revisited. This is one of them.</p>
+
+        <br>
+        <p><a href="https://www.bharatbheesetti.com/blog">← Back to Blog</a></p>
+    </div>
+
+    <script src="firebase-config.js"></script>
+</body>
+
+</html>

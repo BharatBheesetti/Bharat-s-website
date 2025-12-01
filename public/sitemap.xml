@@ -3,6 +3,7 @@
     <url>
         <loc>https://www.bharatbheesetti.com</loc>
     </url>
+    <url>
         <loc>https://www.bharatbheesetti.com/blog</loc>
     </url>
     <url>
@@ -14,12 +15,22 @@
     <url>
         <loc>https://www.bharatbheesetti.com/projects</loc>
     </url>
-     <url>
-        <loc>https://www.bharatbheesetti.com/posts/datawall</loc>
     <url>
+        <loc>https://www.bharatbheesetti.com/posts/one-battle-after-another</loc>
+    </url>
+    <url>
+        <loc>https://www.bharatbheesetti.com/posts/zero_to_hero</loc>
+    </url>
+
+    <url>
+        <loc>https://www.bharatbheesetti.com/posts/personal-software</loc>
+    </url>
+    <url>
+        <loc>https://www.bharatbheesetti.com/posts/datawall</loc>
+    </url>
     <url>
         <loc>https://www.bharatbheesetti.com/posts/mnist_post</loc>
-    <url>
+    </url>
     <url>
         <loc>https://www.bharatbheesetti.com/posts/dune2_review</loc>
     </url>
