@@ -4,8 +4,26 @@
     <META charset="UTF-8">
     <META name="viewport"
       content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Projects by Bharat Bheesetti - AI experiments, machine learning tools, and product development projects.">
+      <meta name="author" content="Bharat Bheesetti">
+      <meta name="robots" content="index, follow">
+      <link rel="canonical" href="https://www.bharatbheesetti.com/projects">
+
+      <meta property="og:type" content="website">
+      <meta property="og:title" content="Projects - Bharat Bheesetti">
+      <meta property="og:description" content="AI experiments, machine learning tools, and product development projects.">
+      <meta property="og:url" content="https://www.bharatbheesetti.com/projects">
+      <meta property="og:site_name" content="Bharat Bheesetti">
+      <meta property="og:image" content="https://www.bharatbheesetti.com/Bharat_pic.jpg">
+
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:site" content="@MisterFigs">
+      <meta name="twitter:title" content="Projects - Bharat Bheesetti">
+      <meta name="twitter:description" content="AI experiments, machine learning tools, and product development projects.">
+      <meta name="twitter:image" content="https://www.bharatbheesetti.com/Bharat_pic.jpg">
+
       <link rel="stylesheet" href="styles.css">
-      <title>Bharat's Projects</title>
+      <title>Projects - Bharat Bheesetti</title>
 </head>
 
 <body>
