@@ -19,6 +19,21 @@
     <meta name="twitter:site" content="@MisterFigs">
     <meta name="twitter:title" content="Personal Software">
     <meta name="twitter:description" content="How LLMs are replacing SaaS with personal software. The shift from Excel-in-a-trenchcoat enterprise tools to AI-driven workflow automation.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Personal Software",
+      "author": {
+        "@type": "Person",
+        "name": "Bharat Bheesetti",
+        "url": "https://bharatbheesetti.com"
+      },
+      "datePublished": "2025-11-01",
+      "description": "How LLMs are replacing SaaS with personal software. The shift from Excel-in-a-trenchcoat enterprise tools to AI-driven workflow automation.",
+      "url": "https://bharatbheesetti.com/posts/personal-software"
+    }
+    </script>
 </head>
 
 <body>

@@ -19,6 +19,21 @@
     <meta name="twitter:site" content="@MisterFigs">
     <meta name="twitter:title" content="One Battle After Another - A Review | Bharat Bheesetti">
     <meta name="twitter:description" content="A review of Paul Thomas Anderson's One Battle After Another. Revolution, fatherhood, and pockets of community in the face of oppression.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "One Battle After Another - A Review",
+      "author": {
+        "@type": "Person",
+        "name": "Bharat Bheesetti",
+        "url": "https://bharatbheesetti.com"
+      },
+      "datePublished": "2025-11-01",
+      "description": "A review of Paul Thomas Anderson's One Battle After Another. Revolution, fatherhood, and pockets of community in the face of oppression.",
+      "url": "https://bharatbheesetti.com/posts/one-battle-after-another"
+    }
+    </script>
 </head>
 
 <body>

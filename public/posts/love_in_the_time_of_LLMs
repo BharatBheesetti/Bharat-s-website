@@ -19,6 +19,21 @@
     <meta name="twitter:site" content="@MisterFigs">
     <meta name="twitter:title" content="Love in the time of LLMs">
     <meta name="twitter:description" content="AI companions, emotional relationships with language models, and how social media shifts when LLMs enter the picture.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Love in the time of LLMs",
+      "author": {
+        "@type": "Person",
+        "name": "Bharat Bheesetti",
+        "url": "https://bharatbheesetti.com"
+      },
+      "datePublished": "2023-09-01",
+      "description": "AI companions, emotional relationships with language models, and how social media shifts when LLMs enter the picture.",
+      "url": "https://bharatbheesetti.com/posts/love_in_the_time_of_LLMs"
+    }
+    </script>
 </head>
 
 <body>

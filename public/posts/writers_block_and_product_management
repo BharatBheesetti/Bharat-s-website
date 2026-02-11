@@ -19,6 +19,21 @@
     <meta name="twitter:site" content="@MisterFigs">
     <meta name="twitter:title" content="Writer's block and product management">
     <meta name="twitter:description" content="What writer's block teaches about product management. On people, agency, vision, and the fundamentals of building products.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Writer's block and product management",
+      "author": {
+        "@type": "Person",
+        "name": "Bharat Bheesetti",
+        "url": "https://bharatbheesetti.com"
+      },
+      "datePublished": "2023-09-01",
+      "description": "What writer's block teaches about product management. On people, agency, vision, and the fundamentals of building products.",
+      "url": "https://bharatbheesetti.com/posts/writers_block_and_product_management"
+    }
+    </script>
 </head>
 
 <body>

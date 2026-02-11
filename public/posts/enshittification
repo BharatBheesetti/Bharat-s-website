@@ -19,6 +19,21 @@
     <meta name="twitter:site" content="@MisterFigs">
     <meta name="twitter:title" content="On shoe shopping, whatsapp and enshittification">
     <meta name="twitter:description" content="On shoe shopping, WhatsApp and enshittification. How platforms degrade through Cory Doctorow's framework and Meta's incentive structures.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "On shoe shopping, whatsapp and enshittification",
+      "author": {
+        "@type": "Person",
+        "name": "Bharat Bheesetti",
+        "url": "https://bharatbheesetti.com"
+      },
+      "datePublished": "2024-02-01",
+      "description": "On shoe shopping, WhatsApp and enshittification. How platforms degrade through Cory Doctorow's framework and Meta's incentive structures.",
+      "url": "https://bharatbheesetti.com/posts/enshittification"
+    }
+    </script>
 </head>
 
 <body>

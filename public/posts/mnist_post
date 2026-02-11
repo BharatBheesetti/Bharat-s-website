@@ -19,6 +19,21 @@
     <meta name="twitter:site" content="@MisterFigs">
     <meta name="twitter:title" content="Building a Neural Network from Scratch: MNIST classifier with just Python">
     <meta name="twitter:description" content="Building an MNIST digit classifier neural network from scratch using only Python. No NumPy, no frameworks, just math.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Building a Neural Network from Scratch: MNIST classifier with just Python",
+      "author": {
+        "@type": "Person",
+        "name": "Bharat Bheesetti",
+        "url": "https://bharatbheesetti.com"
+      },
+      "datePublished": "2025-01-01",
+      "description": "Building an MNIST digit classifier neural network from scratch using only Python. No NumPy, no frameworks, just math.",
+      "url": "https://bharatbheesetti.com/posts/mnist_post"
+    }
+    </script>
 </head>
 
 <body>

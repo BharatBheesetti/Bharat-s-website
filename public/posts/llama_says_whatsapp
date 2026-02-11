@@ -19,6 +19,21 @@
     <meta name="twitter:site" content="@MisterFigs">
     <meta name="twitter:title" content="Llama says WhatsApp - voluntary lock-in">
     <meta name="twitter:description" content="How Meta is using Llama and AI integration in WhatsApp to create voluntary platform lock-in and own the next computing paradigm.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Llama says WhatsApp - voluntary lock-in",
+      "author": {
+        "@type": "Person",
+        "name": "Bharat Bheesetti",
+        "url": "https://bharatbheesetti.com"
+      },
+      "datePublished": "2024-11-01",
+      "description": "How Meta is using Llama and AI integration in WhatsApp to create voluntary platform lock-in and own the next computing paradigm.",
+      "url": "https://bharatbheesetti.com/posts/llama_says_whatsapp"
+    }
+    </script>
 </head>
 
 <body>

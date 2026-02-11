@@ -19,6 +19,21 @@
       <meta name="twitter:site" content="@MisterFigs">
       <meta name="twitter:title" content="Potting Balls">
       <meta name="twitter:description" content="On snooker, flow states, and the simple joy of potting balls. A personal essay about finding meditation in cue sports.">
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Potting Balls",
+        "author": {
+          "@type": "Person",
+          "name": "Bharat Bheesetti",
+          "url": "https://bharatbheesetti.com"
+        },
+        "datePublished": "2023-08-01",
+        "description": "On snooker, flow states, and the simple joy of potting balls. A personal essay about finding meditation in cue sports.",
+        "url": "https://bharatbheesetti.com/posts/potting_balls"
+      }
+      </script>
 </head>
 
 <body>

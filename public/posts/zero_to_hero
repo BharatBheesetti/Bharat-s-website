@@ -19,6 +19,21 @@
     <meta name="twitter:site" content="@MisterFigs">
     <meta name="twitter:title" content="My lessons with Andrej">
     <meta name="twitter:description" content="Learning journal following Andrej Karpathy's Neural Networks: Zero to Hero course. Building micrograd, makemore and neural networks from scratch.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "My lessons with Andrej",
+      "author": {
+        "@type": "Person",
+        "name": "Bharat Bheesetti",
+        "url": "https://bharatbheesetti.com"
+      },
+      "datePublished": "2025-11-01",
+      "description": "Learning journal following Andrej Karpathy's Neural Networks: Zero to Hero course. Building micrograd, makemore and neural networks from scratch.",
+      "url": "https://bharatbheesetti.com/posts/zero_to_hero"
+    }
+    </script>
 </head>
 
 <body>
