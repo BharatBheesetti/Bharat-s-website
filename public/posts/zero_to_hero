@@ -6,6 +6,19 @@
     <META name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>My lessons with Andrej</title>
+    <meta name="description" content="Learning journal following Andrej Karpathy's Neural Networks: Zero to Hero course. Building micrograd, makemore and neural networks from scratch.">
+    <meta name="author" content="Bharat Bheesetti">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bharatbheesetti.com/posts/zero_to_hero">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="My lessons with Andrej">
+    <meta property="og:description" content="Learning journal following Andrej Karpathy's Neural Networks: Zero to Hero course. Building micrograd, makemore and neural networks from scratch.">
+    <meta property="og:url" content="https://bharatbheesetti.com/posts/zero_to_hero">
+    <meta property="og:site_name" content="Bharat Bheesetti">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@MisterFigs">
+    <meta name="twitter:title" content="My lessons with Andrej">
+    <meta name="twitter:description" content="Learning journal following Andrej Karpathy's Neural Networks: Zero to Hero course. Building micrograd, makemore and neural networks from scratch.">
 </head>
 
 <body>
@@ -41,40 +54,8 @@
             <li>⬜ Tokenizer Implementation</li>
         </ul>
 
+        <p><b>Next:</b> Multi-layer perceptrons. Time to add actual depth.</p>
 
-        <h3><a href="https://www.youtube.com/watch?v=VMj-3S1tku0">Video 1: Micrograd</a></h3>
-
-        <p>Multiple false starts, forgotten and picked back up again.</p>
-
-        <p>I had built out a neural net from scratch using raw Python before, so this was fairly straightforward. I knew
-            quite well how a neuron functioned.</p>
-
-        <p>But this was also my first use of PyTorch. It took me some time to get used to zips. Also weirdly, and kinda
-            sheepish → it took me a while to grok the neuron → layer → Multi layer perceptron code. I wanted to make
-            sure I got it. So I had to run through it a couple of times.</p>
-
-        <p>LLMs weren't too useful for me here, at least out of the box. They were good at answering questions and
-            explaining, but they tended to give me an answer immediately. I found this prompt from Dwarkesh that talked
-            about the Socratic method, and that was slightly better, though it wasn't perfect. It still seemed to focus
-            the Socratic method of questioning on things I was already grokking, not the stuff I needed help with. But
-            that might have been a skill issue.</p>
-
-        <p>Generally speaking though, it is absolutely amazing how a person like Karpathy can share something like this.
-            Simple, straightforward and a detailed introduction to people looking to learn. A massive, pure hearted win
-            for the internet as a whole. Information does want to be free!</p>
-
-        <p>While trying to minimize the loss function, I ended up with a stupid error in the code that took me a bunch
-            of time to understand. The loss function wasn't backpropagating correctly.</p>
-
-        <p><b>Notes to self:</b></p>
-        <ul>
-            <li>Try out DSPy</li>
-            <li>Target: finetune my own LLM and write a blog post on that</li>
-        </ul>
-
-        <p>Always fun to dutifully spend the time thinking about every piece I'm writing out, create a tiny network and
-            see it become a dutiful little overachiever that isn't good at much else outside the tiny specialisation it
-            spent all its life optimising for. David Foster Wallace would be proud.</p>
 
         <h3><a href="https://www.youtube.com/watch?v=PaCmpygFfXo">Video 2: Makemore</a></h3>
 
@@ -114,7 +95,39 @@
             <li>When it feels like it should be easier in a spreadsheet, use pandas.</li>
         </ul>
 
-        <p><b>Next:</b> Multi-layer perceptrons. Time to add actual depth.</p>
+        <h3><a href="https://www.youtube.com/watch?v=VMj-3S1tku0">Video 1: Micrograd</a></h3>
+
+        <p>Multiple false starts, forgotten and picked back up again.</p>
+
+        <p>I had built out a neural net from scratch using raw Python before, so this was fairly straightforward. I knew
+            quite well how a neuron functioned.</p>
+
+        <p>But this was also my first use of PyTorch. It took me some time to get used to zips. Also weirdly, and kinda
+            sheepish → it took me a while to grok the neuron → layer → Multi layer perceptron code. I wanted to make
+            sure I got it. So I had to run through it a couple of times.</p>
+
+        <p>LLMs weren't too useful for me here, at least out of the box. They were good at answering questions and
+            explaining, but they tended to give me an answer immediately. I found this prompt from Dwarkesh that talked
+            about the Socratic method, and that was slightly better, though it wasn't perfect. It still seemed to focus
+            the Socratic method of questioning on things I was already grokking, not the stuff I needed help with. But
+            that might have been a skill issue.</p>
+
+        <p>Generally speaking though, it is absolutely amazing how a person like Karpathy can share something like this.
+            Simple, straightforward and a detailed introduction to people looking to learn. A massive, pure hearted win
+            for the internet as a whole. Information does want to be free!</p>
+
+        <p>While trying to minimize the loss function, I ended up with a stupid error in the code that took me a bunch
+            of time to understand. The loss function wasn't backpropagating correctly.</p>
+
+        <p><b>Notes to self:</b></p>
+        <ul>
+            <li>Try out DSPy</li>
+            <li>Target: finetune my own LLM and write a blog post on that</li>
+        </ul>
+
+        <p>Always fun to dutifully spend the time thinking about every piece I'm writing out, create a tiny network and
+            see it become a dutiful little overachiever that isn't good at much else outside the tiny specialisation it
+            spent all its life optimising for. David Foster Wallace would be proud.</p>
 
         <br><br>
         <p><i>Last updated: November 2025</i></p>

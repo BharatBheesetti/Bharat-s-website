@@ -6,6 +6,19 @@
     <META name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Personal Software</title>
+    <meta name="description" content="How LLMs are replacing SaaS with personal software. The shift from Excel-in-a-trenchcoat enterprise tools to AI-driven workflow automation.">
+    <meta name="author" content="Bharat Bheesetti">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bharatbheesetti.com/posts/personal-software">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Personal Software">
+    <meta property="og:description" content="How LLMs are replacing SaaS with personal software. The shift from Excel-in-a-trenchcoat enterprise tools to AI-driven workflow automation.">
+    <meta property="og:url" content="https://bharatbheesetti.com/posts/personal-software">
+    <meta property="og:site_name" content="Bharat Bheesetti">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@MisterFigs">
+    <meta name="twitter:title" content="Personal Software">
+    <meta name="twitter:description" content="How LLMs are replacing SaaS with personal software. The shift from Excel-in-a-trenchcoat enterprise tools to AI-driven workflow automation.">
 </head>
 
 <body>
