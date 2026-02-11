@@ -4,8 +4,24 @@
     <META charset="UTF-8">
     <META name="viewport"
       content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Bharat Bheesetti's bookshelf — the books that have had the biggest impact, from fiction to philosophy to business.">
+      <meta name="author" content="Bharat Bheesetti">
+      <meta name="robots" content="index, follow">
+      <link rel="canonical" href="https://bharatbheesetti.com/bookshelf">
+
+      <meta property="og:type" content="website">
+      <meta property="og:title" content="Bookshelf - Bharat Bheesetti">
+      <meta property="og:description" content="The books that have had the biggest impact, from fiction to philosophy to business.">
+      <meta property="og:url" content="https://bharatbheesetti.com/bookshelf">
+      <meta property="og:site_name" content="Bharat Bheesetti">
+
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:site" content="@MisterFigs">
+      <meta name="twitter:title" content="Bookshelf - Bharat Bheesetti">
+      <meta name="twitter:description" content="The books that have had the biggest impact, from fiction to philosophy to business.">
+
       <link rel="stylesheet" href="styles.css">
-      <title>Bookshelf</title>
+      <title>Bookshelf - Bharat Bheesetti</title>
 </head>
 
 <body>

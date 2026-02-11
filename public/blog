@@ -7,20 +7,20 @@
       <meta name="description" content="Bharat Bheesetti's blog - Essays on product building, AI, strategy, technology, and thoughtful reflections on books and movies.">
       <meta name="author" content="Bharat Bheesetti">
       <meta name="robots" content="index, follow">
-      <link rel="canonical" href="https://www.bharatbheesetti.com/blog">
+      <link rel="canonical" href="https://bharatbheesetti.com/blog">
 
       <meta property="og:type" content="website">
       <meta property="og:title" content="Blog - Bharat Bheesetti">
       <meta property="og:description" content="Essays on product building, AI, strategy, technology, and thoughtful reflections on books and movies.">
-      <meta property="og:url" content="https://www.bharatbheesetti.com/blog">
+      <meta property="og:url" content="https://bharatbheesetti.com/blog">
       <meta property="og:site_name" content="Bharat Bheesetti">
-      <meta property="og:image" content="https://www.bharatbheesetti.com/Bharat_pic.jpg">
+      <meta property="og:image" content="https://bharatbheesetti.com/Bharat_pic.jpg">
 
       <meta name="twitter:card" content="summary">
       <meta name="twitter:site" content="@MisterFigs">
       <meta name="twitter:title" content="Blog - Bharat Bheesetti">
       <meta name="twitter:description" content="Essays on product building, AI, strategy, technology, and thoughtful reflections on books and movies.">
-      <meta name="twitter:image" content="https://www.bharatbheesetti.com/Bharat_pic.jpg">
+      <meta name="twitter:image" content="https://bharatbheesetti.com/Bharat_pic.jpg">
 
       <link rel="stylesheet" href="styles.css">
       <title>Blog - Bharat Bheesetti</title>
@@ -28,10 +28,10 @@
 
 <body>
     <div id="vertical-menu">
-        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
-        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
-        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
-        <a href="https://www.bharatbheesetti.com/projects">Projects</a><br><br>
+        <a href="https://bharatbheesetti.com">Home </a><br><br>
+        <a href="https://bharatbheesetti.com/blog">Blog </a><br><br>
+        <a href="https://bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
+        <a href="https://bharatbheesetti.com/projects">Projects</a><br><br>
         
     </div>
 
