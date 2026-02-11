@@ -35,11 +35,10 @@
    
     <body>
         <div id="vertical-menu">
-            <a href="https://www.bharatbheesetti.com">Home </a><br><br>
-            <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
-            <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
-            <a href="https://www.bharatbheesetti.com/projects">Projects</a><br><br>
-            
+            <a href="/">Home </a><br><br>
+            <a href="/blog">Blog </a><br><br>
+            <a href="/bookshelf">Bookshelf </a><br><br>
+            <a href="/projects">Projects</a><br><br>
         </div>
         <div id="left">
         </div>
@@ -66,6 +65,9 @@
                 <h3>Matrix Representation</h3>
                 <div id="matrix-details"></div>
             </div>
+
+            <br>
+            <p><a href="/blog">← Back to Blog</a></p>
         </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
         <script src="neural_net_visualizer.js"></script>

@@ -23,10 +23,10 @@
 
 <body>
     <div id="vertical-menu">
-        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
-        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
-        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
-        <a href="https://www.bharatbheesetti.com/projects">Projects</a><br><br>
+        <a href="/">Home </a><br><br>
+        <a href="/blog">Blog </a><br><br>
+        <a href="/bookshelf">Bookshelf </a><br><br>
+        <a href="/projects">Projects</a><br><br>
     </div>
 
     <div id="left">
@@ -109,8 +109,11 @@
         the Imperium. By underplaying this theme and diluting it for laughs, Villeneuve's adaptation, while visually arresting,
         fails to deliver the full impact of Frank Herbert's masterpiece.</p>
 
+        <br>
+        <p><a href="/blog">← Back to Blog</a></p>
     </div>
 
+    <script src="firebase-config.js"></script>
 </body>
 </html>
 

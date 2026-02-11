@@ -23,10 +23,10 @@
 
 <body>
     <div id="vertical-menu">
-        <a href="https://www.bharatbheesetti.com">Home </a><br><br>
-        <a href="https://www.bharatbheesetti.com/blog">Blog </a><br><br>
-        <a href="https://www.bharatbheesetti.com/bookshelf">Bookshelf </a><br><br>
-        <a href="https://www.bharatbheesetti.com/projects">Projects</a><br><br>
+        <a href="/">Home </a><br><br>
+        <a href="/blog">Blog </a><br><br>
+        <a href="/bookshelf">Bookshelf </a><br><br>
+        <a href="/projects">Projects</a><br><br>
     </div>
 
     <div id="left">
@@ -40,7 +40,7 @@
             My WhatsApp is a mess, and I have a theory about why. I'm kinda particular about a zero inbox, and about
             keeping spam off my WhatsApp home. As a result, my user experience everyday has those short but irritating
             moments where I have to block yet another business sending unrequited feedback requests or irrelevant
-            advertisements. No, Acme, I don't want your Diwali offers now. Go ask Wile E. The last time <a href="https://www.bharatbheesetti.com/posts/enshittification">
+            advertisements. No, Acme, I don't want your Diwali offers now. Go ask Wile E. The last time <a href="/posts/enshittification">
             I wrote about WhatsApp</a>, I focused on how Doctorow's enshittification framework explains the degradation in customer UX.<br><br>
             More businesses using WhatsApp for messaging customers → more spam → worse experience - the usual spiral of
             platforms optimizing for revenue over user experience. But there's something more interesting happening
@@ -161,6 +161,9 @@
             spam message and one business interaction at a time, until one day we realize the messaging app we knew is
             gone, replaced by something else - but owned by Meta. But hey, at least those Diwali offers might learn to show up at the right time.
         </p>
+
+        <br>
+        <p><a href="/blog">← Back to Blog</a></p>
     </div>
     <script src="firebase-config.js"></script>
 </body>
