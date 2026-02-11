@@ -1,60 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://www.bharatbheesetti.com</loc>
+        <loc>https://bharatbheesetti.com</loc>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/blog</loc>
+        <loc>https://bharatbheesetti.com/blog</loc>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/bookshelf</loc>
+        <loc>https://bharatbheesetti.com/bookshelf</loc>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/films</loc>
+        <loc>https://bharatbheesetti.com/films</loc>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/projects</loc>
+        <loc>https://bharatbheesetti.com/projects</loc>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/one-battle-after-another</loc>
+        <loc>https://bharatbheesetti.com/posts/zero_to_hero</loc>
+        <lastmod>2025-11-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/zero_to_hero</loc>
+        <loc>https://bharatbheesetti.com/posts/personal-software</loc>
+        <lastmod>2025-11-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/personal-software</loc>
+        <loc>https://bharatbheesetti.com/posts/one-battle-after-another</loc>
+        <lastmod>2025-11-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/datawall</loc>
+        <loc>https://bharatbheesetti.com/posts/datawall</loc>
+        <lastmod>2025-01-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/mnist_post</loc>
+        <loc>https://bharatbheesetti.com/posts/mnist_post</loc>
+        <lastmod>2025-01-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/dune2_review</loc>
+        <loc>https://bharatbheesetti.com/posts/llama_says_whatsapp</loc>
+        <lastmod>2024-11-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/neural_net_visualizer</loc>
+        <loc>https://bharatbheesetti.com/posts/neural_net_visualizer</loc>
+        <lastmod>2024-09-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/llama_says_whatsapp</loc>
+        <loc>https://bharatbheesetti.com/posts/dune2_review</loc>
+        <lastmod>2024-03-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/enshittification</loc>
+        <loc>https://bharatbheesetti.com/posts/enshittification</loc>
+        <lastmod>2024-02-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/gdp</loc>
+        <loc>https://bharatbheesetti.com/posts/gdp</loc>
+        <lastmod>2023-09-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/writers_block_and_product_management</loc>
+        <loc>https://bharatbheesetti.com/posts/writers_block_and_product_management</loc>
+        <lastmod>2023-09-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/love_in_the_time_of_LLMs</loc>
+        <loc>https://bharatbheesetti.com/posts/love_in_the_time_of_LLMs</loc>
+        <lastmod>2023-09-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/potting_balls</loc>
+        <loc>https://bharatbheesetti.com/posts/potting_balls</loc>
+        <lastmod>2023-08-01</lastmod>
     </url>
     <url>
-        <loc>https://www.bharatbheesetti.com/posts/older_posts</loc>
+        <loc>https://bharatbheesetti.com/posts/older_posts</loc>
     </url>
 </urlset>
