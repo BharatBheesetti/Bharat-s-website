@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <META charset="UTF-8">
+    <META name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Work slop - a rant against vibe working | Bharat Bheesetti</title>
+    <meta name="description"
+        content="When LLMs erase the friction involved in creating output, you get a shit ton more output but not much more high quality output.">
+    <meta name="author" content="Bharat Bheesetti">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://bharatbheesetti.com/posts/work-slop">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Work slop - a rant against vibe working | Bharat Bheesetti">
+    <meta property="og:description"
+        content="When LLMs erase the friction involved in creating output, you get a shit ton more output but not much more high quality output.">
+    <meta property="og:url" content="https://bharatbheesetti.com/posts/work-slop">
+    <meta property="og:site_name" content="Bharat Bheesetti">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@MisterFigs">
+    <meta name="twitter:title" content="Work slop - a rant against vibe working | Bharat Bheesetti">
+    <meta name="twitter:description"
+        content="When LLMs erase the friction involved in creating output, you get a shit ton more output but not much more high quality output.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Work slop - a rant against vibe working",
+      "author": {
+        "@type": "Person",
+        "name": "Bharat Bheesetti",
+        "url": "https://bharatbheesetti.com"
+      },
+      "datePublished": "2026-02-12",
+      "description": "When LLMs erase the friction involved in creating output, you get a shit ton more output but not much more high quality output.",
+      "url": "https://bharatbheesetti.com/posts/work-slop"
+    }
+    </script>
+</head>
+
+<body>
+    <div id="vertical-menu">
+        <a href="/">Home </a><br><br>
+        <a href="/blog">Blog </a><br><br>
+        <a href="/bookshelf">Bookshelf </a><br><br>
+        <a href="/projects">Projects</a><br><br>
+    </div>
+
+    <div id="left">
+    </div>
+
+    <div id="content">
+        <h1>Work slop - a rant against vibe working</h1>
+
+        <p>The biggest problem in the world will be answering - Is this slop? It's everywhere now. In that
+            lazy linkedin post, in that suspiciously elaborate slack response to "Why did this feature
+            break?". I particularly love those documents where the headings are modified so that they
+            don't <b>"Read Something Like This"</b>, but clearly the "writer" couldn't be bothered to do the
+            same with the subheadings.</p>
+
+        <p>Slop at work is getting worse, and it'll continue to get worse. You've seen that clearly
+            ChatGPT'ed document, the 20 pages of rambling nonsense, maybe even without the "Here
+            you go" parts cleaned up. Or those 30 lines of code (half of them are comments) for an if
+            statement. And it's you who has to parse that text and give it your attention to conclude that
+            it is, indeed, slop.</p>
+
+        <p>Back in the good old pre-GPT days of 2022, writing meant something. At work, in your
+            personal life. It meant you could think, you could put your thoughts down in a (hopefully)
+            intelligible manner. At work, it meant you did the work, in some shape or form. That's no
+            longer the case.</p>
+
+        <img src="blogpostpics/old_man_yells_at_cloud.jpg"
+            alt="Old Man Yells At Cloud - Simpsons newspaper headline meme"
+            class="imageresponsive">
+
+        <p>Slop's insidious, because it takes effort to realise that it's low quality. The document seems
+            well formatted, well structured and consistent. But the logic is spotty, there's no through-line
+            of conviction, there are clear inconsistencies in reasoning and worst of all, there's no
+            opinion. You have to expend mental effort to determine this.</p>
+
+        <p>When LLM's erase the friction involved in creating output, you get a shit ton more output as
+            opposed to before, but not much more high quality output. "Skill issue", I hear you say. With
+            a <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering">Claude skill</a> that summarizes the <a href="https://en.wikipedia.org/wiki/The_Elements_of_Style">Elements of Style</a>, with fewer em dashes, with better
+            "context engineering", you can get an output that's eminently readable. All of that's still
+            excellent dressing for the germ of a good, well thought through idea. Without the central idea
+            to coalesce around, all these skills and writing prompts just float around aimlessly to create a
+            vacuous, empty piece of writing.</p>
+
+        <p>Writing that doesn't illuminate, educate or put forth a view. It just summarizes, summarizes
+            the ghost of understanding pulled from a shitty, low effort prompt and its neighbors in latent
+            space.</p>
+
+        <p>This pulls upon an important thread, the one about taste. Everyone's raving about taste
+            these days. When the marginal cost of creation goes to zero, the only valuable thing is taste.
+            But taste is not an infinite resource. There's only so many bad drafts or pieces of writing you
+            can see and reject before your "taste muscle" starts getting fatigued.</p>
+
+        <p>Take my example. I've tried to vibe code a few things. When I fully vibe code stuff, I end up
+            with empty, small, shallow, barely functioning stuff. Which is okay. I don't care too much, I'm
+            just passing the time and pretending I'm learning stuff. The harder part is when I'm putting in
+            the effort, when I've written out clearly what I want, the flows, how it should look, how it
+            should behave. And then the model doesn't grok it. It spits out an implementation plan that
+            reads like empty stuff. Empty tokens with nothing behind them. And my reward is trying it
+            again.</p>
+
+        <p>There are few experiences so anticlimactic as reading slop. You're emptier when you finish
+            reading it. We need slopblock like we needed ublock origin. Summarize the verbal torrent of
+            uselessness and replace it with "not worth it". Give me back my time. This <a href="https://xkcd.com/810/">XKCD</a> says it
+            better than I could, like most of them.</p>
+
+        <img src="blogpostpics/xkcd_constructive.png"
+            alt="XKCD 810: Constructive - Spammers break CAPTCHAs so a new system rates comments as constructive or not. Mission. Fucking. Accomplished."
+            class="imageresponsive">
+
+        <p>And no, Pepe Silvia, I will not spend time reading your proposal when you couldn't be
+            bothered to spend time writing it.</p>
+
+        <br><br><br>
+        <p><a href="/blog">&larr; Back to Blog</a></p>
+    </div>
+
+    <script src="firebase-config.js"></script>
+</body>
+
+</html>

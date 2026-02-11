@@ -41,6 +41,7 @@
     <div id="content">
         <h2>Blog</h2>
         <ul>
+            <li> Feb 2026&emsp;<a href="posts/work-slop"><b>Work slop - a rant against vibe working</b></a></li><br>
             <li> Feb 2026&emsp;<a href="posts/on-automation-amnesia-and-events"><b>On Automation, Amnesia and Events</b></a></li><br>
             <li> Nov 2025&emsp;<a href="posts/zero_to_hero"><b>My Lessons with Andrej</b></a></li><br>
             <li> Nov 2025&emsp;<a href="posts/personal-software"><b>Janet, Raj and the dawn of Personal Software</b></a></li><br>
