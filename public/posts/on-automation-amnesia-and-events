@@ -53,187 +53,88 @@
     <div id="content">
         <h1>On automation, amnesia and events</h1>
 
-        <p>Last month we wired up an LLM module that screens job applicants. It works well, much better than me and
-            other hiring managers. Processing real documents, catching real issues. I sipped my coffee and briefly
-            considered updating my LinkedIn bio to AI Visionary.</p>
+        <p>Last month I wired up an LLM module that screens job applicants. It works well. Much better than me and other hiring managers, actually. Processing real documents, catching real issues. I sipped my coffee and considered updating my LinkedIn bio to AI Visionary.</p>
 
-        <p>This feeling lasted about forty-five minutes. Then someone on the ops team asked why someone was
-            stuck in the pipeline for two weeks. Turns out, our beautiful automation had the long-term memory of Guy
-            Pearce in <i>Memento</i>.</p>
+        <p>This feeling lasted about forty-five minutes. Then someone on the ops team asked why an applicant was stuck in the pipeline for two weeks. Turns out, our beautiful automation had the long-term memory of Guy Pearce in <i>Memento</i>.</p>
 
-        <img src="blogpostpics/memento_amnesia.jpg"
-            alt="Guy Pearce in Memento holding a polaroid, captioned: I have this condition" class="imageresponsive">
+        <img src="blogpostpics/memento_amnesia.jpg" alt="Guy Pearce in Memento holding a polaroid, captioned: I have this condition" class="imageresponsive">
 
-        <p>I've been building these automated modules for a couple of years now. Document verification, compliance
-            checks, automated assessments, scoring. Each one of them works. They all make the quarterly review pleasant,
-            relatively. But
-            I keep running into a speedbump when I try to connect them into something end-to-end. More of an
-            organizational issue than a technical or (as I feared briefly) because of localised incompetence.</p>
+        <p>I've been building these modules for a couple of years now. Each one works. But I keep hitting a wall when I try to connect them end-to-end, and the wall is organizational, not technical.</p>
 
-        <p><b>For a large enterprise looking to automate business and ops lines and realise the magical boost to product
-                and business metrics, the ceiling on your agent strategy isn't model or agent capability.
-                It's whether your organisation has actually agreed on how to remember things.</b></p>
+        <p><b>The ceiling on your enterprise agent strategy isn't model capability. It's whether your organisation has agreed on how to remember things.</b></p>
 
         <h2>Automated silos are still silos</h2>
 
-        <p>Every division in a business is automating its own piece. One team automates lead qualification. Another
-            automates onboarding. Another automates fulfilment. Another automates support. Each builds its own agent
-            coalition, and each coalition handles its domain just fine. All the respective product managers grin and
-            write "AI agents shipped, cut costs by 95%" on their CV.</p>
+        <p>Every division is automating its own piece. One team automates lead qualification. Another automates onboarding. Another automates fulfilment. Another automates support. Each builds its own agent coalition, and each coalition handles its domain just fine. All the respective product managers grin and write "AI agents shipped, cut costs by 95%" on their CVs.</p>
 
-        <p>But a customer doesn't live inside one division. They flow through the whole business. Discovered, evaluated,
-            signed up, onboarded, served, supported, renewed. The value the business provides to the customer is in the
-            coherence of that end to end journey, not in any single
-            team's local win.</p>
+        <p>But a customer doesn't live inside one division.</p>
 
-        <p>When a customer crosses from one team's domain to the next, the receiving team's agents have no idea what
-            happened before. What was flagged, what was waived, what was decided. Mostly, the agents start from zero.
-            You've automated
-            the silos, but the silos are still silos. Five teams with five agent coalitions, collectively dumber than
-            one ops person who had access to all the spreadsheets.</p>
+        <p>They flow through the whole business. Discovered, evaluated, signed up, onboarded, served, supported, renewed. The value is in the coherence of that end-to-end journey, not in any single team's local win.</p>
 
-        <p>Say an agent needs to handle a support escalation. Customer's stuck and nobody can figure out why. The agent
-            has to rummage through the sales CRM, the risk database, the onboarding system, the product database, the
-            billing platform. Different schemas. Probably different IDs for the same customer. It's like asking someone
-            to do a jigsaw puzzle where the pieces are spread across five rooms and some of them are from a different
-            puzzle entirely.</p>
+        <p>When a customer crosses from one team's domain to the next, the receiving agents have no idea what was flagged, waived, or decided upstream. Five teams with five agent coalitions, collectively dumber than one ops person who had access to all the spreadsheets.</p>
 
-        <img src="blogpostpics/pepe_silvia_schemas.jpg"
-            alt="Charlie from Always Sunny conspiracy board meme: There is no foreign key. The join does not exist."
-            class="imageresponsive">
+        <p>Say an agent needs to handle a support escalation. It has to rummage through the sales CRM, the risk database, the onboarding system, the product database, the billing platform. Different schemas. Different IDs for the same customer. A jigsaw puzzle where the pieces are spread across five rooms.</p>
 
-        <p>Now picture the alternative: a clean event stream. One chronological story. Signed up &rarr; evaluated &rarr;
-            approved &rarr; onboarded &rarr; activated &rarr; first issue &rarr; stuck 14 days. One stream. No joins.
-            The agent can spend its intelligence on solving the problem instead of assembling it from scratch.</p>
+        <img src="blogpostpics/pepe_silvia_schemas.jpg" alt="Charlie from Always Sunny conspiracy board meme: There is no foreign key. The join does not exist." class="imageresponsive">
+
+        <p>Now picture the alternative: a clean event stream. One chronological story. Signed up, evaluated, approved, onboarded, activated, first issue, stuck 14 days. The agent spends its intelligence on solving the problem instead of assembling it from scratch.</p>
+
+        <img src="blogpostpics/diagram_silos_vs_events.png" alt="Diagram comparing siloed teams losing context at every handoff versus teams connected by a shared event stream preserving full context" class="responsive">
 
         <p>State tells you the patient is dead. Events tell you why.</p>
 
-        <img src="blogpostpics/diagram_silos_vs_events.png"
-            alt="Diagram comparing siloed teams losing context at every handoff versus teams connected by a shared event stream preserving full context"
-            class="responsive">
-
         <h2>"Just give agents database access"</h2>
 
-        <p>A dev friend of mine countered my argument. If agents need context, give them database access. Let them
-            query what they need. Models are smart enough.</p>
+        <p>A dev friend pushed back on this. If agents need context, give them database access. Let them query what they need. Models are smart enough.</p>
 
-        <p>He's half right. For investigation (figuring out why something went wrong after the fact) database access
-            works. An agent can query five systems, reconstruct the timeline, give you an answer. Slow, expensive, might
-            hallucinate some joins, but it gets you there.</p>
+        <p>Half right. For investigation, figuring out why something went wrong after the fact, database access works. An agent can query five systems, reconstruct the timeline, give you an answer. Slow, expensive, might hallucinate some joins (might be a skill issue), but it gets you there.</p>
 
-        <p>Operational coordination is a different problem. Investigation is forensic. Coordination is live. When your
-            risk team's agents flag a pattern in incoming applications, the onboarding team doesn't need to investigate
-            that three weeks later. It needs to know now, so it can adapt. Database access gives you archaeology while
-            events
-            give you a nervous system.</p>
+        <p>Operational coordination is a different animal. Investigation is forensic. Coordination is live. When your risk team's agents flag a pattern in incoming applications, the onboarding team doesn't need to investigate that three weeks later. It needs to know now. Database access gives you archaeology. Events give you a nervous system.</p>
 
-        <p>There's a related argument: context windows are big enough now, just dump everything in and let the model
-            sort it out. This doesn't quite work either. Context windows are still limited to session level. They're not
-            long-term memory (yet). And expanding context windows actually makes agent behaviour worse (for now). More
-            context
-            often leads to noise, drift and worse decisions. The answer to "agents can't
-            remember" isn't "give them more to read."</p>
+        <p>Related argument: context windows are big enough, just dump everything in. This doesn't work either. Context windows are session-level, not long-term memory. And models reliably perform worse on operational tasks when you dump everything in than when you curate what matters. Total recall isn't the goal. The right memory at the right time is. The answer to "agents can't remember" is not "give them more to read."</p>
 
-        <p>There are three different memory problems emerging.</p>
+        <p>Three memory problems are emerging:</p>
         <ul>
-            <li>What happened in this conversation (session memory) </li>
-            <li>What this agent knows across conversations (agent memory) </li>
-            <li>What all agents across the business collectively know (organisational memory) </li>
+            <li>What happened in this conversation (session memory)</li>
+            <li>What this agent knows across conversations (agent memory)</li>
+            <li>What all agents across the business collectively know (organisational memory)</li>
         </ul>
-        <p>The industry is making progress on the first
-        two. Mem0, Letta, various retrieval setups. The third, the one that actually determines whether your
-        automated business functions as a whole, is largely unsolved (<a
-            href="https://openai.com/index/introducing-openai-frontier/">OpenAI is making strides here</a>, and we'll
-        see more of this in 2026). MCP is going stateless. Google's A2A treats
-        agents as opaque black boxes. The standardisation efforts are deliberately leaving organisational memory to
-        you.</p>
 
-        <h2>What it looks like when it works</h2>
-
-        <p>I've tried to get this across in planning meetings, to mixed reception.</p>
-
-        <p>Support agents notice a spike in complaints from a specific customer segment. Turns out they all went through
-            an expedited onboarding flow that skipped a validation step. That signal flows to the onboarding team, which
-            fixes the gap. Sales sees the change and adjusts what they promise in the pitch. The loop closes across four
-            teams without anyone calling a meeting.</p>
-
-        <p>This executive wet dream is the promise of what happens when a business has shared memory. Teams publish what
-            actually happens (a document
-            verified, a status change, a score assigned) as events that other systems can subscribe to. Team A ships an
-            automated screening module and publishes <code>application.screened</code>. Team B is building quality
-            monitoring. Without shared history, Team B has to negotiate database access, build a custom integration, or
-            (God help us) request a CSV export. With shared events, they subscribe. No meetings. No week-long
-            integration project.</p>
-
-        <p>The fifth automated module ends up cheaper to build than the first, because the infrastructure is already
-            there and the system has memory. That's compounding. And the compounding is both cost and intelligence.
-            Each new module makes the whole system smarter because it can see what every other module did. The business
-            learns as a whole, and it's because the agents (proxies for their individual business divisions) can truly
-            see each
-            other's work as it happens.</p>
-
-        <p>Steve Yegge describes <a href="https://steve-yegge.medium.com/the-anthropic-hive-mind-d01f768f3d7b">something
-                similar</a> happening at an AI native startup. They keep the full work history of
-            everything every human and agent has done, as an append-only log. His take is that the models need that
-            context to
-            merge their work intelligently. That's the difference between a collection of disconnected sprint demos and
-            a business that actually compounds.</p>
-
-        <img src="blogpostpics/diagram_compounding_flywheel.png"
-            alt="Compounding intelligence flywheel: new module ships, publishes events, other modules get smarter, next module cheaper to build"
-            class="responsive">
-
-        <p>Evweyone knows events are important, Bharat, I hear you say. Events have been critical for a while
-            now, but they take center stage in the age of agents, when individual business functions are rapidly getting
-            autonomous.
-            
-            Coordinating biz divisions to ensure they pulled in the same direction took a ton of work. It took cadres of
-            middle management and reams of reports. People in meetings. People reading dashboards. People walking over
-            to ask "Hey, what's going on with this customer segment?" Slow but effective. Those humans are now being replaced by
-            agents that can't walk over and ask. The informal coordination layer that people provided for free is
-            disappearing, and something has to replace it.</p>
-
-        <p>Shared memory replaces the hallway conversation.</p>
+        <p>The industry is making progress on the first two. Mem0, Letta, various retrieval architectures. The third, organisational memory, is largely unsolved (<a href="https://openai.com/index/introducing-openai-frontier/">OpenAI is making strides here</a>, and we'll see more of this in 2026). MCP is moving toward stateless-by-default in its next spec revision. A2A solves agent discovery and coordination but deliberately punts on persistent shared memory. The standardisation efforts are leaving organisational memory to you.</p>
 
         <h2>Why nobody does it (incentives, obviously)</h2>
 
-        <p>Obviously, devs and engineering leaders are well aware of this. But incentives often get in the way.
-            Dependency balance is delicate. You
-            can't ask teams to plan everything with dependencies in mind, velocity just dies. Engineering leaders know
-            this debt is piling up. They ship anyway, because incentives reward shipping. More budget, more headcount,
-            more time. That's how they plan to handle integration: later.</p>
+        <p>You can't ask teams to plan everything with dependencies in mind. Velocity dies. Engineering leaders know this debt is piling up. They ship anyway, because incentives reward shipping. Integration is a problem for later.</p>
 
-        <p>Everyone rationally chooses velocity over cross team coherence. The cost of not doing it is invisible
-            until it isn't. Until you can't build what your roadmap says you should build because your systems can't
-            talk to each other and what should have taken a sprint to build takes a month or more (sprint = day and
-            month = weekend now)</p>
+        <p>Everyone rationally chooses velocity over cross-team coherence. The cost is invisible until it isn't. Until what should take a sprint takes a month. At current speeds, read that as: what should take a day takes a weekend.</p>
 
-        <p>ICLR 2026 has a workshop on agent memory and 80% of agentic issues are coordination related. BCG and MIT
-            surveyed 2,100 executives and concluded that agentic AI is "inherently cross-functional," cutting across
-            organisational boundaries in ways previous technologies didn't. Three quarters of companies plan to deploy
-            agents by end of 2026. One in five has the governance readiness for it.</p>
+        <p>And most enterprises think they already have the answer. Kafka clusters, EventBridge, Pub/Sub. The plumbing exists. But the gap isn't plumbing. It's semantics. A Kafka topic carrying database change events is not a curated business event stream that an agent can consume without a schema doc and a prayer. The new requirement is events designed for agent consumption: entity-centric, temporally ordered, semantically self-describing. Nobody owns that yet.</p>
 
-        <p>I've seen teams build elaborate data pipelines to reconstruct
-            information that should have been published as it happened. I've seen integrations held together by
-            credential-locked spreadsheets processed by macros. I have nothing but respect for the people maintaining
-            those systems. They're solving real problems with whatever they've got. But each workaround is a system
-            trying to remember things it was never designed to record.</p>
+        <p>BCG and MIT surveyed 2,100 executives and found that agentic AI is "inherently cross-functional," cutting across organisational boundaries in ways previous technologies didn't. Nearly 80% of companies are exploring or planning to deploy agents. Few have built the governance frameworks for it.</p>
 
-        <img src="blogpostpics/lumbergh_shared_memory.jpg"
-            alt="Lumbergh from Office Space: If you could just add integration to the backlog, that'd be great"
-            class="imageresponsive">
+        <p>I've seen teams build elaborate data pipelines to reconstruct information that should have been published as it happened. I've seen integrations held together by credential-locked spreadsheets processed by macros (God help us). They're solving real problems with whatever they've got. But each workaround is a system trying to remember things it was never designed to record.</p>
+
+        <img src="blogpostpics/lumbergh_shared_memory.jpg" alt="Lumbergh from Office Space: If you could just add integration to the backlog, that'd be great" class="imageresponsive">
+
+        <h2>What it looks like</h2>
+
+        <p>Picture this: support agents notice a spike in complaints from a specific customer segment. They all went through an expedited onboarding flow that skipped a validation step. That signal flows to the onboarding team, which fixes the gap. Sales sees the change and adjusts what they promise. The loop closes across four teams without anyone calling a meeting.</p>
+
+        <p>The mechanism is straightforward. Each team publishes what actually happens, a document verified, a status change, a score assigned, as events to a shared bus with a common entity schema. Team A ships an automated screening module and publishes <code>application.screened</code>. Team B is building quality monitoring. Without shared events, Team B negotiates database access, builds a custom integration, or (God help us) requests a CSV export. With shared events, they subscribe. No meetings. No week-long integration project.</p>
+
+        <p>The fifth module ends up cheaper to build than the first, because the infrastructure is there and the system has memory. That's compounding, both cost and intelligence. Each new module makes the whole system smarter because it can see what every other module did.</p>
+
+        <p>This is the kicker for most org heads and platform leaders. Coordinating divisions used to take cadres of middle management. People in meetings. People reading dashboards. People walking over to ask questions. Slow, but effective. Those humans are now being replaced by agents that can't walk over and ask. The informal coordination layer that people provided for free is disappearing, and something has to replace it.</p>
+
+        <p>Shared memory replaces the hallway conversation.</p>
+
+        <img src="blogpostpics/diagram_compounding_flywheel.png" alt="Compounding intelligence flywheel: new module ships, publishes events, other modules get smarter, next module cheaper to build" class="responsive">
 
         <h2>Memory</h2>
 
-        <p>Borges wrote about a man who remembers everything, every leaf, every sensation, and is paralysed by it.
-            Systems without memory, agentic or othewise, have the opposite problem. They function, but they can't
-            explain themselves,
-            can't learn from their own history, can't coordinate across divisions on anything that requires knowing what
-            came before.</p>
+        <p>Borges wrote about a man who remembers everything. Every leaf, every sensation. He is paralysed by it. Total recall isn't the answer either. Shared memory is: curated, structured, available when it matters.</p>
 
-        <p>If you're deploying agents across business lines, you will hit this wall. Your individual modules will work.
-            Your connected pipeline won't. The root cause won't be model quality or prompt engineering. It'll be that
-            your systems have amnesia, and your agents inherited it.</p>
+        <p>If you're deploying agents across business lines without that, you will hit this wall. Your individual modules will work. Your connected pipeline won't. And the root cause will be amnesia your agents inherited from an organisation that never learned to publish what it knows.</p>
 
         <p>Everything interesting starts with memory.</p>
 
